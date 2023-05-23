@@ -139,13 +139,13 @@ def get_file_name(file_id: str) -> str:
 def get_thread_name(tread_id: int):
     global xml_data
 
-    if type(thread_id) is str:
+    if type(thread_id) is int:
         threads = xml_data.getElementsByTagName('Thread')
 
         for t in threads:
             if t.hasAttribute('id') and t.hasAttribute('Name'):
                 thread_id_xml = t.getAttribute('id')
-                if thread_id_xml == tread_id:
+                if thread_id_xml == str(tread_id):
                     return t.getAttribute('Name')
 
     return 'Thread not found'
@@ -199,6 +199,26 @@ def bytes(integer):
     return divmod(integer, 0x100)
 
 
+def get_double_word_new_version(bytes: pd.Series) -> int:
+    global byte_pointer
+    shift_bits = 24
+    size_of_byte = 8
+
+    byte = 0
+
+    for i in range(4):
+        temp = int(bytes[byte_pointer + 3 - i])
+        temp <<= shift_bits
+        byte += temp
+
+        shift_bits -= size_of_byte
+        # byte_pointer += 1
+        # print(hex(int(byte)), end=' | ')
+
+    byte_pointer += 4 * 8
+    return byte
+
+
 def get_double_word(bytes: pd.Series) -> int:
     """
     This function return double word
@@ -208,43 +228,43 @@ def get_double_word(bytes: pd.Series) -> int:
     :rtype: int
     """
     global byte_pointer
+    shift_bits = 24
+    size_of_byte = 8
 
-    lower_byte_1 = bytes[byte_pointer]
-    # print(lower_byte_1)
-    byte_pointer += 1
-    lower_byte_2 = bytes[byte_pointer]
-    # print(lower_byte_2)
-    byte_pointer += 1
+    byte = 0
 
-    higher_byte_1 = bytes[byte_pointer]
-    byte_pointer += 1
-    higher_byte_2 = bytes[byte_pointer]
-    byte_pointer += 1
+    for i in range(4):
+        temp = int(bytes[byte_pointer])
+        temp <<= shift_bits
+        byte += temp
 
-    # higher_byte_1 = bytes[byte_pointer]
-    # byte_pointer += 1
-    # higher_byte_2 = bytes[byte_pointer]
-    # byte_pointer += 1
-    # lower_byte_1 = bytes[byte_pointer]
-    # byte_pointer += 1
-    # lower_byte_2 = bytes[byte_pointer]
-    # byte_pointer += 1
+        shift_bits -= size_of_byte
+        byte_pointer += 1
+        # print(hex(int(byte)), end=' | ')
 
-    return int(lower_byte_2 + lower_byte_1 + higher_byte_2 + higher_byte_1)
-    # return int(lower_byte_1 + lower_byte_2 + higher_byte_1 + higher_byte_2)
-
+    return byte
 
 
 def print_format_log_line(counter, file_name: str, num1, thread_n: str, num2, timestamp_line, timestamp, delta_timestamp, description):
-    print('{:<6}{:<30}{:<6}{:<15}{:<6}{:<6}{:<15}{:<15}{:<150}'.format(counter, file_name, num1, 'TYPE', num2, timestamp_line, timestamp, 0.7777777, description))
+    print('{:<6}{:<30}{:<6}{:<15}{:<6}{:<6}{:<15}{:<15}{:<150}'.format(counter, file_name, num1, thread_n, num2, timestamp_line, timestamp, delta_timestamp, description))
 
 
 def shift_right_until_not_zeros(binary_number: int) -> int:
+    """
+    Don't USE IT!
+    :param binary_number:
+    :type binary_number:
+    :return:
+    :rtype:
+    """
     if type(binary_number) is not int or binary_number == 0:
         return 0
 
-    while binary_number & 0b1 != 1:
+    len = binary_number.bit_length()
+
+    while binary_number & 0b1 != 1 and len > 7:
         binary_number >>= 1
+        len = binary_number.bit_length()
 
     return binary_number
 
@@ -259,54 +279,65 @@ def calculate_delta_timestamp(timestamp, last_timestamp) -> tuple:
 
 
 df = pd.DataFrame(logs_np)
-print(df)
 
 last_timestamp = 0
+hexa_counter = 2
+
 for index, row_bytes in df.iterrows():
     byte_pointer = 0
 
     dword1 = get_double_word(row_bytes)
+    # print('dword1 ' + hex(dword1))
+    # print('dword1 ' + bin(dword1))
     dword2 = get_double_word(row_bytes)
+    # print('dword2 ' + hex(dword2))
+    # print('dword2 ' + bin(dword2))
+
     dword3 = get_double_word(row_bytes)
+    # print('dword3 ' + hex(dword3))
+    # print('dword3 ' + bin(dword3))
+
     dword4 = get_double_word(row_bytes)
-    dword5 = get_double_word(row_bytes)
+    # print('dword4 ' + hex(dword4))
+    # print('dword4 ' + bin(dword4))
+
+    dword5 = get_double_word_new_version(row_bytes)
+    # print('dword5 ' + hex(dword5))
+    # print('dword5 ' + bin(dword5))
 
     # double word 1 scope
-    print('dword=', dword1)
     magic_number = dword1 & 0b1111_1111_0000_0000_0000_0000_0000_0000
-    print('magic=', bin(magic_number))
-    magic_number = shift_right_until_not_zeros(magic_number)
-    print('shift=', bin(magic_number))
-    print()
+    magic_number >>= (4 * 6)  # 6 octal (4 bits)
 
     severity = dword1 & 0b0000_0000_1111_1000_0000_0000_0000_0000
-    severity = shift_right_until_not_zeros(severity)
+    severity >>= (4 * 4 + 3)  # 4 octal (4 bits)
 
-    thread_id = dword1 & 0b0000_0000_0000_0111_0000_0000_0000_0000
-    thread_id = shift_right_until_not_zeros(thread_id)
+    thread_id = dword1 & 0b0000_0000_1110_0000_0000_0000_0000_0000
+    thread_id >>= (4 * 5 + 1)  # 4 octal (4 bits)    print(thread_id)
 
+    # TODO Understand why we need use only 8 bites and not 11 bits?
     file_id = dword1 & 0b0000_0000_0000_0000_1111_1111_1110_0000
-    file_id = shift_right_until_not_zeros(file_id)
+    file_id >>= (4 + 4)  # 6 octal (4 bits)
+
+    # print('file_id ' + bin(file_id))
+    # print('file_id ' + str(file_id))
 
     group_id = dword1 & 0b0000_0000_0000_0000_0000_0000_0001_1111
-    group_id = shift_right_until_not_zeros(group_id)
 
     # double word 2 scope
     event_id = dword2 & 0b1111_1111_1111_1111_0000_0000_0000_0000
-    event_id = shift_right_until_not_zeros(event_id)
+    event_id >>= (4 * 4)  # 4 octal (4 bits)
 
     line = dword2 & 0b0000_0000_0000_0000_1111_1111_1111_0000
-    line = shift_right_until_not_zeros(line)
+    line >>= 4  # 4 octal
 
     sequence = dword2 & 0b0000_0000_0000_0000_0000_0000_0000_1111
-    sequence = shift_right_until_not_zeros(sequence)
 
     # double word 3 scope
     data_1 = dword3 & 0b1111_1111_1111_1111_0000_0000_0000_0000
-    data_1 = shift_right_until_not_zeros(data_1)
+    data_1 >>= (4 * 4)  # 4 octal (4 bits)
 
     data_2 = dword3 & 0b0000_0000_0000_0000_1111_1111_1111_1111
-    data_2 = shift_right_until_not_zeros(data_2)
 
     # double word 4 scope
     data_3 = dword4
@@ -319,28 +350,17 @@ for index, row_bytes in df.iterrows():
     file_name = get_file_name(str(file_id))
     thread_name = get_thread_name(thread_id)
 
-    number_arguments = get_number_of_arguments(str(event_id))
+    # number_arguments = get_number_of_arguments(str(event_id))
+    # amount_arguments = get_number_of_arguments(str(event_id))
 
-
-
-
-    # # file name
-    # if file_id == 0xE1:  # In case E1 value we have INTERRUPT type and next byte is a file name id.
-    #     byte_pointer += 1
-    #     file_id = get_byte(row_bytes)
-    #
-    #     file_name = get_file_name(str(file_id))
-    # else:
-    #     file_name = get_file_name(str(file_id))
-
-    #
-
-
-    amount_arguments = get_number_of_arguments(str(event_id))
-
-    #
     format_string = get_format_string(str(event_id))
 
     # print(hex(magic_number))
-    # print_format_log_line(index, file_name, 0, thread_name, 0, 0, timestamp, delta_timestamp, "TODO")
-    break
+
+    if hexa_counter == 0x10:
+        hexa_counter = 0
+
+    print_format_log_line(hexa_counter, file_name, 0, thread_name, 0, 0, timestamp, delta_timestamp, "TODO")
+
+    hexa_counter += 1
+
