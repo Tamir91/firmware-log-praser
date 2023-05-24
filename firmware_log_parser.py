@@ -110,7 +110,7 @@ logs_np = logs_np[~np.all(logs_np == '0', axis=1)]
 # print(logs_np)
 
 # Open XML document using minidom parser
-DOMTree = xml.dom.minidom.parse("HWLoggerEventsDS5.xml")
+DOMTree = xml.dom.minidom.parse("a.xml")
 xml_data = DOMTree.documentElement
 
 
@@ -199,15 +199,51 @@ def bytes(integer):
     return divmod(integer, 0x100)
 
 
-def get_double_word_new_version(bytes: pd.Series) -> int:
+def read_byte(dword: int, position: str) -> int:
+    """
+    This function read high or low byte from a double word
+    :param position:
+    :type position:
+    :param dword: double word
+    :type dword: int
+    :return: event id
+    :rtype: int
+    """
+    if position == 'high':
+        # cut HIGH word from there with event id
+        low_byte = dword & 0b0000_0000_1111_1111_0000_0000_0000_0000
+        high_byte = dword & 0b1111_1111_0000_0000_0000_0000_0000_0000
+
+        # swap high and low bytes in the word
+        low_byte >>= (4 * 2)  # 2 octal (4 bits)
+        high_byte >>= (4 * 6)  # 6 octal (4 bits)
+
+    elif position == 'low':
+        low_byte = dword & 0b0000_0000_0000_0000_0000_0000_1111_1111
+        high_byte = dword & 0b0000_0000_0000_0000_1111_1111_0000_0000
+
+        # swap high and low bytes in the word
+        low_byte <<= (4 * 2)  # 2 octal (4 bits)
+        high_byte >>= (4 * 2)  # 2 octal (4 bits)
+
+    else:
+        return 0
+
+    byte = high_byte | low_byte
+
+    return byte
+
+
+def read_metadata(bytes: pd.Series) -> int:
     global byte_pointer
     shift_bits = 24
     size_of_byte = 8
+    bytes_in_dword = 4
 
     byte = 0
 
     for i in range(4):
-        temp = int(bytes[byte_pointer + 3 - i])
+        temp = int(bytes[byte_pointer + 3 - i])  # start read bytes from the end of the Low byte
         temp <<= shift_bits
         byte += temp
 
@@ -215,7 +251,20 @@ def get_double_word_new_version(bytes: pd.Series) -> int:
         # byte_pointer += 1
         # print(hex(int(byte)), end=' | ')
 
-    byte_pointer += 4 * 8
+    byte_pointer += bytes_in_dword * size_of_byte
+    return byte
+
+
+def read_line(dword: int) -> int:
+    low_byte = dword & 0b0000_0000_0000_0000_0000_0000_0000_1111
+    high_byte = dword & 0b0000_0000_0000_0000_1111_1111_0000_0000
+
+    # swap high and low bytes in the word
+    low_byte <<= (4 * 2)  # 2 octal (4 bits)
+    high_byte >>= (4 * 2)  # 2 octal (4 bits)
+
+    byte = high_byte | low_byte
+
     return byte
 
 
@@ -245,8 +294,33 @@ def get_double_word(bytes: pd.Series) -> int:
     return byte
 
 
+def get_description_string(format_str: str, number_args: int, var_1, var_2, var_3) -> str:
+    if number_args == 0:
+        string = format_str
+        return string
+    elif number_args == 1:
+        string = format_str.format(var_1)
+        return string
+    elif number_args == 2:
+        string = format_str.format(var_1, var_2)
+        return string
+    elif number_args == 3:
+        string = format_str.format(var_1, var_2, var_3)
+        return string
+    else:
+        return format_str + " (Wrong number of arguments read from the log line!)"
+
+
 def print_format_log_line(counter, file_name: str, num1, thread_n: str, num2, timestamp_line, timestamp, delta_timestamp, description):
-    print('{:<6}{:<30}{:<6}{:<15}{:<6}{:<6}{:<15}{:<15}{:<150}'.format(counter, file_name, num1, thread_n, num2, timestamp_line, timestamp, delta_timestamp, description))
+    print('{:<6}{:<30}{:<6}{:<15}{:<6}{:<6}{:<15}{:<15}{:<150}'.format(counter,
+                                                                       file_name,
+                                                                       num1,
+                                                                       thread_n,
+                                                                       num2,
+                                                                       timestamp_line,
+                                                                       timestamp,
+                                                                       str(delta_timestamp)[0: 7: 1],
+                                                                       description))
 
 
 def shift_right_until_not_zeros(binary_number: int) -> int:
@@ -301,7 +375,7 @@ for index, row_bytes in df.iterrows():
     # print('dword4 ' + hex(dword4))
     # print('dword4 ' + bin(dword4))
 
-    dword5 = get_double_word_new_version(row_bytes)
+    dword5 = read_metadata(row_bytes)
     # print('dword5 ' + hex(dword5))
     # print('dword5 ' + bin(dword5))
 
@@ -319,48 +393,40 @@ for index, row_bytes in df.iterrows():
     file_id = dword1 & 0b0000_0000_0000_0000_1111_1111_1110_0000
     file_id >>= (4 + 4)  # 6 octal (4 bits)
 
-    # print('file_id ' + bin(file_id))
-    # print('file_id ' + str(file_id))
 
     group_id = dword1 & 0b0000_0000_0000_0000_0000_0000_0001_1111
 
     # double word 2 scope
-    event_id = dword2 & 0b1111_1111_1111_1111_0000_0000_0000_0000
-    event_id >>= (4 * 4)  # 4 octal (4 bits)
+    event_id = read_byte(dword2, 'high')
 
-    line = dword2 & 0b0000_0000_0000_0000_1111_1111_1111_0000
-    line >>= 4  # 4 octal
+    line = read_line(dword2)
+    # line >>= 4  # 4 octal
 
     sequence = dword2 & 0b0000_0000_0000_0000_0000_0000_0000_1111
 
     # double word 3 scope
-    data_1 = dword3 & 0b1111_1111_1111_1111_0000_0000_0000_0000
-    data_1 >>= (4 * 4)  # 4 octal (4 bits)
-
-    data_2 = dword3 & 0b0000_0000_0000_0000_1111_1111_1111_1111
+    data_1 = read_byte(dword3, 'high')
+    data_2 = read_byte(dword3, 'low')
 
     # double word 4 scope
-    data_3 = dword4
+    data_3 = read_byte(dword4, 'high')
 
     # double word 5 scope
     timestamp = dword5
 
-    delta_timestamp, last_timestamp = calculate_delta_timestamp(timestamp, last_timestamp)
-
     file_name = get_file_name(str(file_id))
     thread_name = get_thread_name(thread_id)
+    delta_timestamp, last_timestamp = calculate_delta_timestamp(timestamp, last_timestamp)
 
-    # number_arguments = get_number_of_arguments(str(event_id))
-    # amount_arguments = get_number_of_arguments(str(event_id))
-
+    number_arguments = get_number_of_arguments(str(event_id))
     format_string = get_format_string(str(event_id))
+    description_string = get_description_string(format_string, number_arguments, data_1, data_2, data_3)
 
-    # print(hex(magic_number))
 
-    if hexa_counter == 0x10:
+    print_format_log_line(hexa_counter, file_name, 0, thread_name, 0, line, timestamp, delta_timestamp, description_string)
+
+    if hexa_counter == 0xF:
         hexa_counter = 0
-
-    print_format_log_line(hexa_counter, file_name, 0, thread_name, 0, 0, timestamp, delta_timestamp, "TODO")
-
-    hexa_counter += 1
+    else:
+        hexa_counter += 1
 
