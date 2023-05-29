@@ -9,7 +9,7 @@ import sys
 
 import numpy as np
 import pandas as pd
-from typing import List
+from typing import List, Any
 
 from xml.dom.minidom import parse
 import xml.dom.minidom
@@ -21,10 +21,14 @@ def usage() -> None:
     :return:
     :rtype:
     """
-    pass
+    script_name = os.path.basename(sys.argv[0])
+    print('Syntax: ' + script_name + ' [-f] <firmware_log> [-x] <xml_file>')
+    print('                       -h, --help         prints help info     ')
+    print('                       -f, --lof-file     firmware log file    ')
+    print('                       -x, --xml-events   xml file             ')
+    exit(1)
 
 
-#  1. open .log
 def read_log_file(file_link: str) -> str:
     """
 
@@ -33,8 +37,8 @@ def read_log_file(file_link: str) -> str:
     :return:
     :rtype:
     """
-    if not os.path.isfile(file_link):
-        usage()
+    if type(file_link) is not str or not os.path.exists(file_link) or not os.path.isfile(file_link):
+        print(f'Error: file {file_link} not found')
         exit(1)
 
     with open(file_link, 'r') as file:
@@ -43,7 +47,50 @@ def read_log_file(file_link: str) -> str:
     return data
 
 
-def remove_first_bytes(log: List[str], number_bytes: int) -> List[str]:
+def read_xml_file(file_link: str):
+    """
+    This function read xml file with parsing rules
+    :param file_link: xml link
+    :type file_link: str
+    :return: object with tree xml data
+    """
+    # Open XML document using minidom parser
+    if xml_file_link and type(xml_file_link) is str and os.path.exists(xml_file_link) and os.path.isfile(xml_file_link):
+        if xml_file_link.endswith('.xml'):
+            dom_tree = xml.dom.minidom.parse(xml_file_link)
+            data = dom_tree.documentElement
+            return data
+        else:
+            print(f'Error: file {file_link} has wrong format')
+            exit(1)
+    else:
+        print(f'Error: file {file_link} not found')
+        exit(1)
+
+
+def read_pipe_input():
+    """
+    This function read input from pipe
+    :return: input from pipe
+    :rtype: str
+    """
+    lines = ''
+    for log_line in sys.stdin:
+        lines += log_line
+
+    return lines
+
+
+def remove_first_bytes(log: list, number_bytes: int) -> list:
+    """
+    This function remove first N given nodes from a list.
+    :param log: list with strings
+    :type log: list
+    :param number_bytes: numer of first nodes that needs remove
+    :type number_bytes: int
+    :return: edited list
+    :rtype: list
+    """
     if log and type(log) is list and type(number_bytes) is int and 0 < number_bytes < len(log):
         for i in range(number_bytes):
             log.pop(0)
@@ -51,48 +98,52 @@ def remove_first_bytes(log: List[str], number_bytes: int) -> List[str]:
     return log
 
 
-def print_hexadecimal(log: np.array) -> None:
-    if log and type(log) is np.array:
-        for i in log:
-            for j in i:
-                print(hex(int(j)), end=',')
-            print()
-
-
-def split_log(log: List[str], length_of_line: int = 20) -> List[List[str]]:
+def split_log(log: list, length_of_list: int = 20) -> List[List[Any]]:
+    """
+    This function splits one list to list with length length_of_list size.
+    :param log: list of data
+    :type log: list
+    :param length_of_list: size of small list
+    :type length_of_list: int
+    :return: list of list
+    :rtype: list
+    """
     bytes_in_log_line = 20
 
-    if log and type(log) is list and type(length_of_line) is int:
-        return [log[i:i + bytes_in_log_line] for i in range(0, len(log), length_of_line)]
+    if log and type(log) is list and type(length_of_list) is int:
+        return [log[i:i + bytes_in_log_line] for i in range(0, len(log), length_of_list)]
 
 
 # Entry point
-required_tags = []
 opts = []
 args = ""
 nibble_size = 4
 
 # parse command-line:
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "fx", longopts=['lof-file', 'xml-events'])
+    opts, args = getopt.getopt(sys.argv[1:], "hf:x:", longopts=['help', 'lof-file', 'xml-events'])
 except getopt.GetoptError as err:
-    # log.e(err)
     print("Error in get opt")
     usage()
 
+log_file_link = ''
+xml_file_link = ''
+
 for opt, arg in opts:
+
     if opt in ('-h', '--help'):
         usage()
     elif opt in ('-f', '--lof-file'):
-        pass
+        log_file_link = arg
     elif opt in ('-x', '--xml-events'):
-        pass
+        xml_file_link = arg
 
-if len(args) != 1:
-    usage()
+xml_data = read_xml_file(xml_file_link)
+if log_file_link == '':
+    logs_str = read_pipe_input()
+else:
+    logs_str = read_log_file(log_file_link)
 
-#  remove_words(arg...)
-logs_str = read_log_file("d457_fw_lose_vc.log")
 
 # remove all except numbers and ','
 logs_str = re.sub("[^0-9,]", "", logs_str)
@@ -108,19 +159,13 @@ logs_np = np.array(logs_matrix)
 # remove rows that contain only zeroes
 logs_np = logs_np[~np.all(logs_np == '0', axis=1)]
 
-# print(logs_np)
-
-# Open XML document using minidom parser
-DOMTree = xml.dom.minidom.parse("HWLoggerEventsDS5.xml")
-xml_data = DOMTree.documentElement
-
 
 def print_log_headers() -> None:
     """
     Print headers to console
     :return: None
     """
-    print_format_log_line('Seq.', 'File name', '?', 'Thread name', 'Sev.',
+    print_format_log_line('Seq.', 'File name', 'Gr id', 'Thread name', 'Sev.',
                           'Line', 'Timestamp', 'Delta timestamp', 'Description')
 
 
@@ -212,9 +257,9 @@ def get_number_of_arguments_from_xml(_id: str) -> int:
     return 0
 
 
-def read_byte(dword: int, position: str) -> int:
+def read_word(dword: int, position: str) -> int:
     """
-    This function read high or low byte from a double word
+    This function read high or low word from a double word
     :param position: high or low byte
     :type position: str
     :param dword: double word
@@ -508,7 +553,7 @@ df = pd.DataFrame(logs_np)
 
 last_timestamp = 0
 
-print_log_headers()
+# print_log_headers()
 
 for index, row_bytes in df.iterrows():
     byte_pointer = 0
@@ -534,26 +579,23 @@ for index, row_bytes in df.iterrows():
     # print('dword5 ' + bin(dword5))
 
     # double word 1 scope
-    # TODO - what is a usage of magic_number? (8 bits)
-
     magic_number = read_magic_number(dword1)
     thread_id = read_thread_id(dword1)
     severity = read_severity(dword1)
     file_id = read_file_id(dword1)
-    #  TODO - what is a usage of group_id? (5 bits)
     group_id = read_group_id(dword1)
 
     # double word 2 scope
-    event_id = read_byte(dword2, 'high')
+    event_id = read_word(dword2, 'high')
     line = read_line(dword2)
     sequence = read_sequence(dword2)
 
     # double word 3 scope
-    data_1 = read_byte(dword3, 'high')
-    data_2 = read_byte(dword3, 'low')
+    data_1 = read_word(dword3, 'high')
+    data_2 = read_word(dword3, 'low')
 
     # double word 4 scope
-    data_3 = read_byte(dword4, 'high')
+    data_3 = read_word(dword4, 'high')
 
     # double word 5 scope
     timestamp = dword5
@@ -567,4 +609,4 @@ for index, row_bytes in df.iterrows():
     format_string = get_format_string_from_xml(str(event_id))
     description_string = get_description_string(format_string, number_arguments, data_1, data_2, data_3)
 
-    print_format_log_line(sequence, file_name, 0, thread_name, severity, line, timestamp, delta_timestamp, description_string)
+    print_format_log_line(sequence, file_name, group_id, thread_name, severity, line, timestamp, delta_timestamp, description_string)
