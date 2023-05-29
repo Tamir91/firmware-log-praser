@@ -553,7 +553,7 @@ df = pd.DataFrame(logs_np)
 
 last_timestamp = 0
 
-# print_log_headers()
+print_log_headers()
 
 for index, row_bytes in df.iterrows():
     byte_pointer = 0
