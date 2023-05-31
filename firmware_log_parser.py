@@ -1,11 +1,12 @@
 """
 This script parse firmware log
-Usage
 """
+import ctypes
 import getopt
 import os.path
 import re
 import sys
+from ctypes import Structure, c_uint16, c_uint32
 
 import numpy as np
 import pandas as pd
@@ -15,14 +16,70 @@ from xml.dom.minidom import parse
 import xml.dom.minidom
 
 
+class Dword1(Structure):
+    _fields_ = [('magic_number', c_uint32, 8),
+                ('severity', c_uint32, 5),
+                ('thread_id', c_uint32, 3),
+                ('field_id', c_uint32, 11),
+                ('group_id', c_uint32, 5)]
+
+
+class Dword1Union(ctypes.Union):
+    _fields_ = [("bytes", Dword1),
+                ("as_byte", c_uint32)]
+
+
+class Dword2(Structure):
+    _fields_ = [('event_id', c_uint32, 16),
+                ('line_number', c_uint32, 12),
+                ('sequence', c_uint32, 4)]
+
+
+class Dword2Union(ctypes.Union):
+    _fields_ = [("bytes", Dword2),
+                ("as_byte", c_uint32)]
+
+
+class Dword3(Structure):
+    _fields_ = [('data1', c_uint16),
+                ('data2', c_uint16)]
+
+
+class Dword3Union(ctypes.Union):
+    _fields_ = [("bytes", Dword3),
+                ("as_byte", c_uint32)]
+
+
+class Dword4(Structure):
+    _fields_ = [('data3', c_uint32)]
+
+
+class Dword4Union(ctypes.Union):
+    _fields_ = [("bytes", Dword4),
+                ("as_byte", c_uint32)]
+
+
+class Dword5(Structure):
+    _fields_ = [('timestamp', c_uint32)]
+
+
+class Dword5Union(ctypes.Union):
+    _fields_ = [("bytes", Dword5),
+                ("as_byte", c_uint32)]
+
+
 def usage() -> None:
     """
-
-    :return:
-    :rtype:
+    This function print help menu on the screen
+    :return: None
     """
     script_name = os.path.basename(sys.argv[0])
+
+    print('This script parse firmware log.                                ')
+    print('In the output_customisation dictionary you can customize output')
     print('Syntax: ' + script_name + ' [-f] <firmware_log> [-x] <xml_file>')
+    print('OR                                                             ')
+    print('Syntax: output | ' + script_name + ' [-x] <xml_file>           ')
     print('                       -h, --help         prints help info     ')
     print('                       -f, --lof-file     firmware log file    ')
     print('                       -x, --xml-events   xml file             ')
@@ -31,11 +88,11 @@ def usage() -> None:
 
 def read_log_file(file_link: str) -> str:
     """
-
-    :param file_link:
-    :type file_link:
-    :return:
-    :rtype:
+    Read all data from log file
+    :param file_link: link to the file with a log
+    :type file_link: str
+    :return: all read log
+    :rtype: str
     """
     if type(file_link) is not str or not os.path.exists(file_link) or not os.path.isfile(file_link):
         print(f'Error: file {file_link} not found')
@@ -117,7 +174,6 @@ def split_log(log: list, length_of_list: int = 20) -> List[List[Any]]:
 # Entry point
 opts = []
 args = ""
-nibble_size = 4
 
 # parse command-line:
 try:
@@ -144,7 +200,6 @@ if log_file_link == '':
 else:
     logs_str = read_log_file(log_file_link)
 
-
 # remove all except numbers and ','
 logs_str = re.sub("[^0-9,]", "", logs_str)
 
@@ -162,11 +217,11 @@ logs_np = logs_np[~np.all(logs_np == '0', axis=1)]
 
 def print_log_headers() -> None:
     """
-    Print headers to console
+    Print headers to a console
     :return: None
     """
-    print_format_log_line('Seq.', 'File name', 'Gr id', 'Thread name', 'Sev.',
-                          'Line', 'Timestamp', 'Delta timestamp', 'Description')
+    print_format_log_line('Sequence', 'File name', 'Group id', 'Thread name', 'Severity',
+                          'Line', 'Timestamp', '\u0394 timestamp', 'Description')
 
 
 def get_file_name_from_xml(_id: str) -> str:
@@ -191,7 +246,7 @@ def get_file_name_from_xml(_id: str) -> str:
     return 'File not found'
 
 
-def get_thread_name_from_xml(tread_id: int) -> str:
+def get_thread_name_from_xml(thread_id: int) -> str:
     """
     Scan xml for thread name according given thread id
     :param tread_id: thread id
@@ -207,7 +262,7 @@ def get_thread_name_from_xml(tread_id: int) -> str:
         for t in threads:
             if t.hasAttribute('id') and t.hasAttribute('Name'):
                 thread_id_xml = t.getAttribute('id')
-                if thread_id_xml == str(tread_id):
+                if thread_id_xml == str(thread_id):
                     return t.getAttribute('Name')
 
     return 'Thread not found'
@@ -257,187 +312,6 @@ def get_number_of_arguments_from_xml(_id: str) -> int:
     return 0
 
 
-def read_word(dword: int, position: str) -> int:
-    """
-    This function read high or low word from a double word
-    :param position: high or low byte
-    :type position: str
-    :param dword: double word
-    :type dword: int
-    :return: bytee
-    :rtype: int
-    """
-    if position == 'high':
-        # cut HIGH word from there with event id
-        low_byte = dword & 0b0000_0000_1111_1111_0000_0000_0000_0000
-        high_byte = dword & 0b1111_1111_0000_0000_0000_0000_0000_0000
-
-        # swap high and low bytes in the word
-        low_byte >>= (nibble_size * 2)  # 2 nibbles (4 bits)
-        high_byte >>= (nibble_size * 6)  # 6 nibbles (4 bits)
-
-    elif position == 'low':
-        low_byte = dword & 0b0000_0000_0000_0000_0000_0000_1111_1111
-        high_byte = dword & 0b0000_0000_0000_0000_1111_1111_0000_0000
-
-        # swap high and low bytes in the word
-        low_byte <<= (nibble_size * 2)  # 2 nibbles (4 bits)
-        high_byte >>= (nibble_size * 2)  # 2 nibbles (4 bits)
-
-    else:
-        return 0
-
-    byte = high_byte | low_byte
-
-    return byte
-
-
-def read_magic_number(dword: int) -> int:
-    """
-    Read magic number from double word. Not in use
-    :param dword: double word
-    :type dword: int
-    :return: magic number
-    :rtype: int
-    """
-    # get 8 bits according a mask
-    number = dword & 0b1111_1111_0000_0000_0000_0000_0000_0000
-    # move the bits to the right side
-    number >>= (nibble_size * 6)  # 6 nibbles (4 bits)
-
-    return number
-
-
-def read_thread_id(dword: int) -> int:
-    """
-    Read thread id from double word
-    :param dword: double word
-    :type dword: int
-    :return: thread id
-    :rtype: int
-    """
-    # get 3 bits according a mask
-    thread_id_ = dword & 0b0000_0000_1110_0000_0000_0000_0000_0000
-    # move the bits to the right side
-    thread_id_ >>= (nibble_size * 5 + 1)  # 5 nibbles (4 bits)
-
-    return thread_id_
-
-
-def read_severity(dword: int) -> int:
-    """
-    Read severity number from double word
-    :param dword: double word
-    :type dword: int
-    :return: severity value
-    :rtype: int
-    """
-    # get 5 bits according a mask
-    sev = dword & 0b0000_0000_0001_1111_0000_0000_0000_0000
-    # move the bits to the right side
-    sev >>= (nibble_size * 4)  # 4 nibbles (4 bits)
-
-    return sev
-
-
-def read_file_id(dword: int) -> int:
-    """
-    Read file id number from double word
-    :param dword: double word
-    :type dword: int
-    :return: file id value
-    :rtype: int
-    """
-    # get 3 bits according a mask
-    low_byte = dword & 0b0000_0000_0000_0000_0000_0000_1110_0000
-    # get 8 bits according a mask
-    high_byte = dword & 0b0000_0000_0000_0000_1111_1111_0000_0000
-
-    # swap high and low bytes in the word
-    low_byte <<= 3  # (3 bits)
-    high_byte >>= (nibble_size * 2)  # 2 nibbles (4 bits)
-
-    f_id = high_byte | low_byte
-    return f_id
-
-
-def read_group_id(dword: int) -> int:
-    """
-    Read group id number from double word
-    :param dword: double word
-    :type dword: int
-    :return: group id value
-    :rtype: int
-    """
-    # get 5 bits according a mask
-    return dword & 0b0000_0000_0000_0000_0000_0000_0001_1111
-
-
-def read_metadata(bytes_: pd.Series) -> int:
-    """
-    Read metadata value from double word
-    :param bytes_: pandas byte list
-    :type bytes_: ps.Series
-    :return: metadata
-    :rtype: int
-    """
-    global byte_pointer
-    shift_bits = 24
-    size_of_byte = 8
-    bytes_in_dword = 4
-
-    byte = 0
-
-    # This loop reverse bytes in double word
-    for i in range(bytes_in_dword):
-        temp = int(bytes_[byte_pointer + 3 - i])  # start read bytes from the end of the Low byte
-        temp <<= shift_bits
-        byte += temp
-
-        shift_bits -= size_of_byte
-
-    byte_pointer += bytes_in_dword * size_of_byte
-    return byte
-
-
-def read_line(dword: int) -> int:
-    """
-    Read line number from double word
-    :param dword: double word
-    :type dword: int
-    :return: line value
-    :rtype: int
-    """
-    # get 4 bits according a mask
-    low_byte = dword & 0b0000_0000_0000_0000_0000_0000_0000_1111
-    # get 8 bits according a mask
-    high_byte = dword & 0b0000_0000_0000_0000_1111_1111_0000_0000
-
-    # swap high and low bytes in the word
-    low_byte <<= (nibble_size * 2)  # 2 nibbles (4 bits)
-    high_byte >>= (nibble_size * 2)  # 2 nibbles (4 bits)
-
-    byte = high_byte | low_byte
-
-    return byte
-
-
-def read_sequence(dword: int) -> int:
-    """
-    Read sequence number from double word
-    :param dword: double word
-    :type dword: int
-    :return: sequence value
-    :rtype: int
-    """
-    # get 4 bits according a mask
-    s = dword & 0b0000_0000_0000_0000_0000_0000_1111_0000
-    # move the bits to the right side
-    s >>= nibble_size
-
-    return s
-
-
 def get_double_word(bytes_: pd.Series) -> int:
     """
     This function return double word
@@ -447,21 +321,19 @@ def get_double_word(bytes_: pd.Series) -> int:
     :rtype: int
     """
     global byte_pointer
-    shift_bits = 24
     size_of_byte = 8
     bytes_in_dword = 4
 
-    byte = 0
+    dword = 0
 
     for i in range(bytes_in_dword):
-        temp = int(bytes_[byte_pointer])
-        temp <<= shift_bits
-        byte += temp
+        byte = int(bytes_[byte_pointer])
+        byte <<= i * size_of_byte
+        dword |= byte
 
-        shift_bits -= size_of_byte
         byte_pointer += 1
 
-    return byte
+    return dword
 
 
 def get_description_string(format_str: str, number_args: int, var_1, var_2, var_3) -> str:
@@ -496,39 +368,53 @@ def get_description_string(format_str: str, number_args: int, var_1, var_2, var_
         return format_str + " (Wrong number of arguments read from the log line!)"
 
 
-def print_format_log_line(seq_id, file_name: str, num1, thread_n: str, num2, timestamp_line, timestamp, delta_timestamp, description):
+def print_format_log_line(seq_id, f_name, g_id, thread_name_, severity_, line_num,
+                          timestamp_, delta_timestamp_, description) -> None:
     """
     Prints string of parsed log line according format
-    :param seq_id:
-    :type seq_id:
-    :param file_name:
-    :type file_name:
-    :param num1:
-    :type num1:
-    :param thread_n:
-    :type thread_n:
-    :param num2:
-    :type num2:
-    :param timestamp_line:
-    :type timestamp_line:
-    :param timestamp:
-    :type timestamp:
-    :param delta_timestamp:
-    :type delta_timestamp:
-    :param description:
-    :type description:
-    :return:
-    :rtype:
+    :param seq_id: sequence id
+    :param f_name: file name
+    :param g_id: group id
+    :param thread_name_: thread name
+    :param severity_: severity
+    :param line_num: line number
+    :param timestamp_: timestamp
+    :param delta_timestamp_: delta timestamp
+    :param description: error description
     """
-    print('{:<6}{:<30}{:<6}{:<15}{:<6}{:<6}{:<15}{:<15}{:<150}'.format(seq_id,
-                                                                       file_name,
-                                                                       num1,
-                                                                       thread_n,
-                                                                       num2,
-                                                                       timestamp_line,
-                                                                       timestamp,
-                                                                       str(delta_timestamp)[0: 7: 1],
-                                                                       description))
+    global output_customisation
+
+    if output_customisation['print_sequence_id']:
+        print('{:<10}'.format(seq_id), end='')
+
+    if output_customisation['print_file_name']:
+        print('{:<30}'.format(f_name), end='')
+
+    if output_customisation['print_group_id']:
+        print('{:<10}'.format(g_id), end='')
+
+    if output_customisation['print_thread_name']:
+        print('{:<13}'.format(thread_name_), end='')
+
+    if output_customisation['print_severity']:
+        print('{:<10}'.format(severity_), end='')
+
+    if output_customisation['print_line_num']:
+        print('{:<6}'.format(line_num), end='')
+
+    if output_customisation['print_timestamp']:
+        print('{:<15}'.format(timestamp_), end='')
+
+    if output_customisation['print_delta_timestamp']:
+        if type(delta_timestamp_) == float:
+            print('{:<13}'.format(str(delta_timestamp_)[0: 7: 1]), end='')
+        else:
+            print('{:<13}'.format(str(delta_timestamp_)), end='')  # print header
+
+    if output_customisation['print_description']:
+        print('{:<150}'.format(description), end='')
+
+    print('\n')
 
 
 def calculate_delta_timestamp(timestamp, last_timestamp) -> int:
@@ -550,55 +436,59 @@ def calculate_delta_timestamp(timestamp, last_timestamp) -> int:
 
 
 df = pd.DataFrame(logs_np)
-
 last_timestamp = 0
+
+output_customisation = {'print_sequence_id': True,
+                        'print_file_name': True,
+                        'print_group_id': True,
+                        'print_thread_name': True,
+                        'print_severity': True,
+                        'print_line_num': True,
+                        'print_timestamp': True,
+                        'print_delta_timestamp': True,
+                        'print_description': True}
 
 print_log_headers()
 
 for index, row_bytes in df.iterrows():
     byte_pointer = 0
 
-    dword1 = get_double_word(row_bytes)
-    # print('dword1 ' + hex(dword1))
-    # print('dword1 ' + bin(dword1))
+    dword1 = Dword1Union()
+    dword1.as_byte = get_double_word(row_bytes)
 
-    dword2 = get_double_word(row_bytes)
-    # print('dword2 ' + hex(dword2))
-    # print('dword2 ' + bin(dword2))
+    dword2 = Dword2Union()
+    dword2.as_byte = get_double_word(row_bytes)
 
-    dword3 = get_double_word(row_bytes)
-    # print('dword3 ' + hex(dword3))
-    # print('dword3 ' + bin(dword3))
+    dword3 = Dword3Union()
+    dword3.as_byte = get_double_word(row_bytes)
 
-    dword4 = get_double_word(row_bytes)
-    # print('dword4 ' + hex(dword4))
-    # print('dword4 ' + bin(dword4))
+    dword4 = Dword4Union()
+    dword4.as_byte = get_double_word(row_bytes)
 
-    dword5 = read_metadata(row_bytes)
-    # print('dword5 ' + hex(dword5))
-    # print('dword5 ' + bin(dword5))
+    dword5 = Dword5Union()
+    dword5.as_byte = get_double_word(row_bytes)
 
     # double word 1 scope
-    magic_number = read_magic_number(dword1)
-    thread_id = read_thread_id(dword1)
-    severity = read_severity(dword1)
-    file_id = read_file_id(dword1)
-    group_id = read_group_id(dword1)
+    magic_number = dword1.bytes.magic_number
+    severity = dword1.bytes.severity
+    thread_id = dword1.bytes.thread_id
+    file_id = dword1.bytes.field_id
+    group_id = dword1.bytes.group_id
 
     # double word 2 scope
-    event_id = read_word(dword2, 'high')
-    line = read_line(dword2)
-    sequence = read_sequence(dword2)
+    event_id = dword2.bytes.event_id
+    line_number = dword2.bytes.line_number
+    sequence = dword2.bytes.sequence
 
     # double word 3 scope
-    data_1 = read_word(dword3, 'high')
-    data_2 = read_word(dword3, 'low')
+    data_1 = dword3.bytes.data1
+    data_2 = dword3.bytes.data2
 
     # double word 4 scope
-    data_3 = read_word(dword4, 'high')
+    data_3 = dword4.bytes.data3
 
     # double word 5 scope
-    timestamp = dword5
+    timestamp = dword5.bytes.timestamp
 
     file_name = get_file_name_from_xml(str(file_id))
     thread_name = get_thread_name_from_xml(thread_id)
@@ -609,4 +499,5 @@ for index, row_bytes in df.iterrows():
     format_string = get_format_string_from_xml(str(event_id))
     description_string = get_description_string(format_string, number_arguments, data_1, data_2, data_3)
 
-    print_format_log_line(sequence, file_name, group_id, thread_name, severity, line, timestamp, delta_timestamp, description_string)
+    print_format_log_line(sequence, file_name, group_id, thread_name, severity, line_number, timestamp, delta_timestamp,
+                          description_string)
