@@ -1,0 +1,177 @@
+
+Waiting for RealSense device to connect...
+RealSense device was connected...
+2023-05-24 16:27:01 2483492353 1 Warn MAIN Pmu.c 217 PMU power down U3 - dummy(0) ; dummy(0) ; dummy(0)
+2023-05-24 16:27:01 2531382833 2 Debug MAIN CamUnit.c 128 Cam sync master cfg: master 7, trigger pulse width 16650 clocks
+2023-05-24 16:27:01 2537468773 3 Debug MAIN CamUnit.c 128 Cam sync master cfg: master 10, trigger pulse width 10 clocks
+2023-05-24 16:27:01 2537470064 4 Error MAIN HwConfig.c 417 HW config - OTF status inconsistent 0, 0, 0x00
+2023-05-24 16:27:01 2537570813 5 Warn MAIN PWM.c 1052 PWM Flag B Check On Init, mode 1, flagBEyeSafetyErrorVal = 1, test pass 1
+2023-05-24 16:27:01 2537571537 6 Debug MAIN CamUnit.c 128 Cam sync master cfg: master 7, trigger pulse width 16650 clocks
+2023-05-24 16:27:01 2537573674 7 Debug MAIN PWM.c 1521 Pwm calc laser count: required power 150, target power 145, count 8
+2023-05-24 16:27:01 2537574387 8 Debug MAIN global_defs.h 53 Flow system state on end point 2 changed from state 2[EnumValue=ETSystemSubStates] to state 2[EnumValue=ETSystemSubStates]
+2023-05-24 16:27:01 2537574764 9 Debug MAIN global_defs.h 53 Flow system state on end point 3 changed from state 2[EnumValue=ETSystemSubStates] to state 2[EnumValue=ETSystemSubStates]
+2023-05-24 16:27:01 2537575501 10 Warn MAIN Pmu.c 266 PMU power up U3 : 0 us
+2023-05-24 16:27:01 2561890339 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2561895785 12 Debug MAIN BinaryCommandHandler.c 606 426 sequential HWM commands ( opcode 0x30 ) successfully processed
+2023-05-24 16:27:01 2561896153 13 Debug MAIN BinaryCommandHandler.c 611 GVD Return value 00
+2023-05-24 16:27:01 2562193071 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2562198333 15 Debug MAIN BinaryCommandHandler.c 611 UAMG (USB Advanced Mode Get), Return value 00
+2023-05-24 16:27:01 2562452291 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2562457746 1 Debug MAIN BinaryCommandHandler.c 611 GVD Return value 00
+2023-05-24 16:27:01 2563687739 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2563693020 3 Debug MAIN BinaryCommandHandler.c 611 GETSUBPRESET Get the current SubPreset buffer, Return value 00
+2023-05-24 16:27:01 2603850823 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2603856085 5 Debug MAIN BinaryCommandHandler.c 611 UAMG (USB Advanced Mode Get), Return value 00
+2023-05-24 16:27:01 2649013963 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2701515427 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:01 2736116635 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 2768719015 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 2803093311 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 2847063859 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 2881428787 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 2921279159 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 2972963079 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 3009734447 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 3041623947 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:02 3077178431 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3115733787 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3144742147 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3187074835 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3216906559 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3254295983 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3287505887 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3326753407 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3360898491 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:03 3401458407 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3438647723 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3478173815 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3512048331 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3551009883 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3587615079 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3624374263 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3661509400 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3699598331 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:04 3735108895 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 3771903571 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 3811437799 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 3849295771 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 3888465675 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 3927346075 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 3966855043 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 4000089139 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 4039172139 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:05 4073463915 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 4112055015 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 4149193243 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 4188822063 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 4224962127 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 4262356343 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 3388483 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 41680195 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 76426603 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:06 116766011 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 154950411 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 192729171 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 231063771 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 267096311 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 306989827 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 339963455 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 379878499 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 415908703 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:07 452099291 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 487557235 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 522515779 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 559068043 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 599325663 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 633290979 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 670340343 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 709801251 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 748595407 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:08 787396839 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 825316711 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 865687699 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 903153111 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 943097895 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 975304979 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 1014971207 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 1053124463 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:09 1092481510 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1130995795 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1168790643 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1204263323 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1242231643 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1281187739 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1319784011 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1358718415 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1397302187 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:10 1434703307 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1467884379 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1504955679 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1543738947 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1581218159 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1620101107 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1658480495 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1697853787 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1735595383 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:11 1771458595 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 1809437331 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 1847160263 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 1886287371 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 1924804747 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 1964088995 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 2002047107 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 2035666487 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 2074487859 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:12 2116112835 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2155448407 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2191363679 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2230637611 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2270671407 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2305109163 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2334722999 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2376538183 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:13 2414533491 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2452903603 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2490529439 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2527410259 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2562815175 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2601751155 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2634970223 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2672865795 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2709074199 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:14 2745362715 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 2786321987 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 2824959975 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 2862599135 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 2902052899 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 2939787395 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 2975883159 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 3012563874 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 3051543867 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:15 3092791467 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3129944199 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3168880919 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3206302663 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3246327578 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3284784139 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3323683719 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3361928783 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3401353055 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:16 3439632775 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3479172211 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3518038231 15 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3556534191 0 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3595955179 1 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3634078175 2 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3675007591 3 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3710327919 4 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3743764091 5 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:17 3779981215 6 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 3814389011 7 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 3849639871 8 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 3889896443 9 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 3928109283 10 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 3967388423 11 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 4006168091 12 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 4044118587 13 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent
+2023-05-24 16:27:18 4081102267 14 Debug INTERRUPT UvcControl.c 1372 UVC control (3[EnumValue=ETVideoFunctionID]:1) VALUE:0[EnumValue=BinaryOpcodes] message sent

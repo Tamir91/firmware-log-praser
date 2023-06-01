@@ -1,0 +1,1022 @@
+<Format version="1.88">
+  <Event id="1" numberOfArguments="1" format="Imager init fail, line {0}" />
+  <Event id="2" numberOfArguments="1" format="Imager - Frame sync enable {0}" />
+  <Event id="3" numberOfArguments="1" format="FishEye imager init fail, line {0}" />
+  <Event id="4" numberOfArguments="2" format="GS imager init fail, SensorApply {0} ( 0- left 1-right 2-Broadcast )  Status {1}" />
+  <Event id="5" numberOfArguments="2" format="FishEye invalid system state {0} (should be paused {1})" />
+  <Event id="6" numberOfArguments="3" format="A-sync UVC control ({0}:{1}) handle completed. status 0x{2:x}" />
+  <Event id="7" numberOfArguments="2" format="Depth - ROI control set to left {0}, right {1}" />
+  <Event id="8" numberOfArguments="3" format="Sensor frame rate changed to {0} FPS, VTS 0x{1:x}, HTS 0x{2:x}" />
+  <Event id="9" numberOfArguments="0" format="Stat state base" />
+  <Event id="10" numberOfArguments="0" format="Stat state disabled" />
+  <Event id="11" numberOfArguments="0" format="Stat state enabled" />
+  <Event id="12" numberOfArguments="0" format="Stat state stopped" />
+  <Event id="13" numberOfArguments="0" format="Stat state wait for starting new frame" />
+  <Event id="14" numberOfArguments="1" format="Flow Depth - time between frames {0}" />
+  <Event id="15" numberOfArguments="0" format="Flow Depth - already in stop" />
+  <Event id="16" numberOfArguments="1" format="Flow Depth - safety checker abort {0}" />
+  <Event id="19" numberOfArguments="3" format="OsThread id:{0} error:0x{1:x} context:0x{2:x}" />
+  <Event id="20" numberOfArguments="0" format="Flow Depth - is not initialized" />
+  <Event id="21" numberOfArguments="1" format="Calibration table is not supported, version 0x{0:x}" />
+  <Event id="22" numberOfArguments="3" format="Flow Sync update: epNum {0}, new state {1}, delay {2} uSec" />
+  <Event id="23" numberOfArguments="2" format="Flow Depth - no need to stop epNum {0}, state {1}" />
+  <Event id="24" numberOfArguments="2" format="Cam sync slave update: slave {0}, enable {1}" />
+  <Event id="25" numberOfArguments="2" format="Cam sync master cfg: master {0}, trigger pulse width {1} clocks" />
+  <Event id="26" numberOfArguments="1" format="Depth - MS XU White Balance control, mode {0}" />
+  <Event id="27" numberOfArguments="1" format="Wrong thread ID! ( id:{0} )" />
+  <Event id="28" numberOfArguments="3" format="Thread stack error! ( id:{0}, size:{1}, unused:{2} )" />
+  <Event id="29" numberOfArguments="1" format="uncompleted flow error, missing thread events. event {0}" />
+  <Event id="30" numberOfArguments="3" format="Timer issue (waiting too much time) {0}, wait time[ms]:{1}, Elapsed[us]:{2}" />
+  <Event id="31" numberOfArguments="0" format="FishEye Stream error, fishEye is Not connected" />
+  <Event id="32" numberOfArguments="1" format="EP{0} error: trying to send data to invalid endpoint" />
+  <Event id="33" numberOfArguments="0" format="HW config - pending OTF update timeout" />
+  <Event id="34" numberOfArguments="2" format="PWM - RegCamPwmEnableCount 0x{0:x}, RegCamPwmDisableCount 0x{1:x}" />
+  <Event id="35" numberOfArguments="2" format="PWM - RegCamPwmWindowCount 0x{0:x}, RegCamPwmDelayCount 0x{1:x}" />
+  <Event id="36" numberOfArguments="3" format="HW config - OTF module 0x{0:x}, immediate {1} Timeout: {2}" />
+  <Event id="37" numberOfArguments="3" format="UVC control ({0} : {1}) handling timeout (9 mSec), value 0x{2:x}" />
+  <Event id="38" numberOfArguments="3" format="Sync UVC control ({0} : {1}) handle completed, value 0x{2:x}" />
+  <Event id="46" numberOfArguments="3" format="TC switch {0}, state:{1}, t0:{2}" />
+  <Event id="47" numberOfArguments="3" format="TC update t_diff:{0}, t:{1}, lFx:0x{2:x}" />
+  <Event id="48" numberOfArguments="3" format="TC update rFx:0x{0:x}{1:x}, rgbFx:0x{2:x}" />
+  <Event id="49" numberOfArguments="3" format="Flow system state on end point {0} changed from state {1}[EnumValue=ETSystemSubStates] to state {2}[EnumValue=ETSystemSubStates]" />
+  <Event id="50" numberOfArguments="3" format="MIPI Interrupt arrived on imager {0}, num errors {1}, status 0x{2:x}" />
+  <Event id="51" numberOfArguments="2" format="Flow depth - no frame on Ep {0} dbg {1}" />
+  <Event id="52" numberOfArguments="2" format="Flow fishEye - no frame on Ep {0} dbg 0x{1:x}" />
+  <Event id="53" numberOfArguments="3" format="Depth - Auto Exposure control set to (dummy {0}): gain: {1}, exposure: {2}" />
+  <Event id="54" numberOfArguments="3" format="REC interrupt status 0x{0:x} enable 0x{1:x} rec status 0x{2:x}" />
+  <Event id="55" numberOfArguments="3" format="Depth Put MSG - FlowDepthInit ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="56" numberOfArguments="3" format="Depth Put MSG - FlowDepthPlay ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="57" numberOfArguments="3" format="Depth Put MSG - FlowDepthStop ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="58" numberOfArguments="3" format="Depth Put MSG - FlowDepthRestart  ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="59" numberOfArguments="3" format="Depth Get MSG - msg.msgFunc 0x{0:x}, param1 {1}, param2 {2}" />
+  <Event id="60" numberOfArguments="3" format="Depth Put MSG - flowDepthStartStreamVerify ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="61" numberOfArguments="3" format="CAM interrupt left ovf {0}, right ovf {1}, CAM status 0x{2:x}" />
+  <Event id="62" numberOfArguments="2" format="USB Descriptor {0}[EnumValue=ETPlatformType], advance mode {1}" />
+  <Event id="63" numberOfArguments="1" format="MIPI RCV error - invalid data rate {0}" />
+  <Event id="64" numberOfArguments="3" format="I2C perf dev:0x{0:x}, size:{1}, elapsed:{2} us" />
+  <Event id="65" numberOfArguments="2" format="Starting I2C write to device 0x{0:x} offset 0x{1:x}" />
+  <Event id="66" numberOfArguments="2" format="Starting I2C read from device 0x{0:x} offset 0x{1:x}" />
+  <Event id="67" numberOfArguments="3" format="Completing I2C write to device 0x{0:x} offset 0x{1:x} status 0x{2:x}" />
+  <Event id="68" numberOfArguments="3" format="Completing I2C read from device 0x{0:x} offset 0x{1:x} status 0x{2:x}" />
+  <Event id="69" numberOfArguments="0" format="I2C device initialization completed" />
+  <Event id="70" numberOfArguments="3" format="I2C driver returns with error 0x{0:x} on Device 0x{1:x} Offset 0x{2:x}" />
+  <Event id="71" numberOfArguments="3" format="I2C interrupt on error: Device 0x{0:x} Offset 0x{1:x} Status=0x{2:x}" />
+  <Event id="72" numberOfArguments="0" format="I2C forced abort failed" />
+  <Event id="73" numberOfArguments="0" format="I2C forced disable failed" />
+  <Event id="74" numberOfArguments="0" format="Enter I2C Interrupt Service Routine" />
+  <Event id="75" numberOfArguments="0" format="Exit I2C Interrupt Service Routine" />
+  <Event id="76" numberOfArguments="0" format="I2C write Fatal error: Transmission terminated but stop signal was not detected" />
+  <Event id="77" numberOfArguments="0" format="I2C read Fatal error: Transmission terminated but stop signal was not detected" />
+  <Event id="78" numberOfArguments="0" format="HW halt ( shouldn't be here )" />
+  <Event id="79" numberOfArguments="1" format="USB{0} enumeration is completed" />
+  <Event id="80" numberOfArguments="0" format="Logger overflow, assigning special sequence id 15 to this log event" />
+  <Event id="81" numberOfArguments="3" format="Exception occurred, try num {0}, reason {1}, pc 0x{2:x}" />
+  <Event id="82" numberOfArguments="3" format="Unhandled Exception occurred. time = {0}, dummy {1}, Address (EPC1): 0x{2:x}" />
+  <Event id="83" numberOfArguments="3" format="Ignore Exception occurred. reason {0}, instr16 : 0x{1:x}, pc : 0x{2:x}" />
+  <Event id="84" numberOfArguments="3" format="MsqQ op:{0} error:{1} ( addr:0x{2:x} )" />
+  <Event id="85" numberOfArguments="3" format="MsqQ GET param2 0x{0:x}:{1:x}, func 0x{2:x}" />
+  <Event id="86" numberOfArguments="0" format="Enter GPIO Interrupt Service Routine status" />
+  <Event id="87" numberOfArguments="0" format="Enter GPIO Interrupt B0 Routine status" />
+  <Event id="88" numberOfArguments="0" format="Enter GPIO Interrupt B0 all GPIO bit status" />
+  <Event id="89" numberOfArguments="0" format="Exit GPIO Interrupt Service Routine" />
+  <Event id="90" numberOfArguments="3" format="Illegal HWM command {0:x}, err {1}, optional 0x{2:x}" />
+  <Event id="91" numberOfArguments="2" format="{0} sequential HWM commands ( opcode 0x{1:x} ) successfully processed" />
+  <Event id="92" numberOfArguments="3" format="Depth Put MSG - FlowDepthStopMems ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="93" numberOfArguments="3" format="External projector configure fail, interface {0}[EnumValue=ETExtProjInterface], num of seqs {1}, status {2}[EnumValue=ErrorTypes]" />
+  <Event id="97" numberOfArguments="0" format="FLASH DD Full Chip Erase" />
+  <Event id="98" numberOfArguments="3" format="FLASH DD Sector Erase. dummy {0}, dummy {1}, Offset {2:x}" />
+  <Event id="99" numberOfArguments="2" format="FLASH DD Block Erase Offset {0:x} Is 64KB {1}" />
+  <Event id="100" numberOfArguments="3" format="SPI Write Data Address {0:x} Length {1} Opcode {2:x}" />
+  <Event id="101" numberOfArguments="3" format="SPI Write  {0} Length {1} Opcode {2:x}" />
+  <Event id="102" numberOfArguments="0" format="Will not fully erase the flash. Some sectors are locked" />
+  <Event id="103" numberOfArguments="3" format="System data storage error 0x{0:x} 0x{1:x} 0x{2:x}" />
+  <Event id="104" numberOfArguments="0" format="mag queue error 1" />
+  <Event id="105" numberOfArguments="0" format="mag queue error 2" />
+  <Event id="106" numberOfArguments="0" format="mag queue error 3" />
+  <Event id="107" numberOfArguments="0" format="mag queue error 4" />
+  <Event id="108" numberOfArguments="0" format="mag queue error 5" />
+  <Event id="109" numberOfArguments="0" format="mag queue error 6" />
+  <Event id="110" numberOfArguments="0" format="Failed to load all calib from flash to mem" />
+  <Event id="111" numberOfArguments="0" format="Failed to read Flash Info" />
+  <Event id="112" numberOfArguments="0" format="Failed to read Flash Info because CRC is wrong" />
+  <Event id="113" numberOfArguments="2" format="Table of contents RW version error (Actual version= {0} != Expected version = {1})" />
+  <Event id="114" numberOfArguments="2" format="Table of contents RO version error (Actual version= {0} != Expected version = {1})" />
+  <Event id="115" numberOfArguments="3" format="Failed to Erase sector. dummy {0}, table id {1}, offset 0x{2:x}" />
+  <Event id="116" numberOfArguments="0" format="Failed to read Table of Contents" />
+  <Event id="117" numberOfArguments="3" format="Table {0} Size is bigger than the Buffer allocated ({1} &gt; {2})" />
+  <Event id="118" numberOfArguments="1" format="There is not buffer assigned to this table (tableId = {0})" />
+  <Event id="119" numberOfArguments="1" format="Failed to read the data of the table from the Flash (tableId = {0}[EnumValue=ETFlashTableId])" />
+  <Event id="120" numberOfArguments="3" format="The CRC is wrong for the data of tableId: {0}[EnumValue=ETFlashTableId]  (crcCalc {1} != CrcFlash {2})" />
+  <Event id="121" numberOfArguments="0" format="Failed to write Data on the Flash" />
+  <Event id="122" numberOfArguments="3" format="Failed to read table because the size is wrong ( Flash size = {0}  - Buffer size = {1} - Table ID = {2}[EnumValue=ETFlashTableId])" />
+  <Event id="123" numberOfArguments="2" format="Failed to write Data on the Flash because the size in the phase is wrong (size {0} != flash size {1})" />
+  <Event id="124" numberOfArguments="2" format="Failed to write Data on the Flash because the CRC is wrong (FlashCRC {0} != CalcCRC {1})" />
+  <Event id="125" numberOfArguments="0" format="Calib Table Failed to load because its empty" />
+  <Event id="126" numberOfArguments="3" format="table {0}, valid CRC should be sent only in last phase, current phase {1}, last phase {2}" />
+  <Event id="127" numberOfArguments="0" format="OEM Table is empty on the Flash, use Default setting" />
+  <Event id="128" numberOfArguments="0" format="Tbl ModuleInfo is empty on the Flash" />
+  <Event id="129" numberOfArguments="1" format="Table is empty of tableId = {0}" />
+  <Event id="130" numberOfArguments="2" format="Failed to Read Table because the PhaseID param of Read Table is wrong( PhaseID {0} &gt; lastPhaseID {1})" />
+  <Event id="131" numberOfArguments="2" format="Failed to Write Table because the PhaseID param of write Table is wrong( PhaseID {0} &gt; lastPhaseID {1})" />
+  <Event id="132" numberOfArguments="2" format="table {0}, no valid CRC sent in last phase {1}" />
+  <Event id="133" numberOfArguments="3" format="table {0}, illegal write size({1} bytes) for phase, should be &lt;= {2} bytes" />
+  <Event id="134" numberOfArguments="3" format="table {0}, sent table to write with size {1} is not equal to table size {2}" />
+  <Event id="135" numberOfArguments="0" format="Calibration not initialized please send initcal command and reset" />
+  <Event id="136" numberOfArguments="0" format="Unhandled Interrupt Error" />
+  <Event id="137" numberOfArguments="0" format="Get Probe base" />
+  <Event id="138" numberOfArguments="3" format="Get Current probe control, format {0}, frame {1}, FPS {2}" />
+  <Event id="139" numberOfArguments="3" format="Get Min probe control, format {0}, frame {1}, FPS {2}" />
+  <Event id="140" numberOfArguments="3" format="Get Max probe control, format {0}, frame {1}, FPS {2}" />
+  <Event id="141" numberOfArguments="2" format="Failed to read from eeprom, offset {0:x}, size {1}" />
+  <Event id="142" numberOfArguments="2" format="Failed to write to eeprom, offset {0:x}, size {1}" />
+  <Event id="143" numberOfArguments="2" format="Flash vendor 0x{0:x}, chip ID 0x{1:x}" />
+  <Event id="144" numberOfArguments="3" format="Set Probe control, format {0}, frame {1}, FPS {2}" />
+  <Event id="145" numberOfArguments="1" format="Failed to read Internal calibration table   ID = {0}" />
+  <Event id="146" numberOfArguments="1" format="Internal calibration table not Initialized  ID = {0}" />
+  <Event id="147" numberOfArguments="3" format="Division by ({0}{1}) detected dividend {2}, divider 0" />
+  <Event id="148" numberOfArguments="3" format="Invalid output frame resolution requested. not exist in s_calibModeIndexLut. dummy {0}, dummy {1}, output res 0x{2:x} (width:height)" />
+  <Event id="149" numberOfArguments="3" format="MsqQ timer create due {0} ms ( 0x{1:x} ) msg_data[0]:{2:x}" />
+  <Event id="150" numberOfArguments="2" format="UVC control length {0} truncated to {1}" />
+  <Event id="151" numberOfArguments="3" format="UVC control ({0}[EnumValue=ETVideoFunctionID]:{1}) VALUE:{2}[EnumValue=BinaryOpcodes] message sent" />
+  <Event id="152" numberOfArguments="3" format="UVC control ({0}[EnumValue=ETVideoFunctionID]:{1}) ACK:0x{2:x} sent" />
+  <Event id="153" numberOfArguments="3" format="UVC control ({0}[EnumValue=ETVideoFunctionID]:{1}) buffer {2} is busy" />
+  <Event id="154" numberOfArguments="0" format="FW recovered from WDT Reset" />
+  <Event id="155" numberOfArguments="3" format="PWM  Error entry: fps {0} exposure_100us {1} then set  windowCount to {2}" />
+  <Event id="156" numberOfArguments="0" format="Serial number in Flash is different then EEPROM, calibration data copied from EEPROM to FLASH" />
+  <Event id="157" numberOfArguments="3" format="PWM Flag B Checking {0} iterations in {1} us and Curr FlagB = {2}" />
+  <Event id="158" numberOfArguments="2" format="PWM Flag B Transitions = {0} in {1} iterations" />
+  <Event id="159" numberOfArguments="0" format="PWM Flag B Error was on Init ( laser disabled )" />
+  <Event id="160" numberOfArguments="1" format="Exception occurred reason = {0}" />
+  <Event id="161" numberOfArguments="3" format="Incrementing global reset status : {0} @ offset : {1} mask : 0x{2:x}" />
+  <Event id="162" numberOfArguments="0" format="Clock gating on vblank enabled" />
+  <Event id="163" numberOfArguments="0" format="Clock gating on vblank disabled" />
+  <Event id="164" numberOfArguments="0" format="No coefficients table" />
+  <Event id="165" numberOfArguments="0" format="Payload 0 PWM table corrupted" />
+  <Event id="166" numberOfArguments="3" format="USB EP{0}, send request error ( {1} bytes ), err : {2}" />
+  <Event id="167" numberOfArguments="3" format="Module temperature {0}, reducing PWM old value {1} -&gt; new value {2}" />
+  <Event id="168" numberOfArguments="2" format="Module temperature {0}, disable PWM current PWM enable value {1}" />
+  <Event id="169" numberOfArguments="3" format="UVC get control STALL. unit {0}[EnumValue=ETVideoFunctionID], control {1}, error code {2}" />
+  <Event id="170" numberOfArguments="3" format="UVC set control STALL. unit {0}[EnumValue=ETVideoFunctionID], control {1}, error code {2}" />
+  <Event id="171" numberOfArguments="3" format="debug log, param1 0x{0:x}, param2 0x{1:x}, param3 0x{2:x}" />
+  <Event id="172" numberOfArguments="2" format="USB ENDPOINT_HALT(EP{0}) request, stream state {1}" />
+  <Event id="173" numberOfArguments="2" format="USB ENDPOINT NRDY event for EP{0}, stream state {1}" />
+  <Event id="174" numberOfArguments="1" format="handle UVC stream stop request for EP{0}" />
+  <Event id="175" numberOfArguments="2" format="handle UVC stream start request for EP{0} ; StreamState={1}" />
+  <Event id="176" numberOfArguments="1" format="Failed to load eeprom header because CRC is wrong. tableId:{0}" />
+  <Event id="177" numberOfArguments="1" format="Failed to find sub calibration table in eeprom. tableId: {0}" />
+  <Event id="179" numberOfArguments="0" format="Calibration data copied from EEPROM to flash. Reset should be applied" />
+  <Event id="180" numberOfArguments="1" format="Failed to find table in eeprom. tableId: {0}[EnumValue=ETEepromTableId]" />
+  <Event id="181" numberOfArguments="2" format="Sub calibration tableId: {0}[EnumValue=ETEepromTableId] was recovered from section: {1}" />
+  <Event id="182" numberOfArguments="3" format="Sub calibration tableId: {0}[EnumValue=ETEepromTableId] failed to recover from section: {1} Error Type: {2}" />
+  <Event id="183" numberOfArguments="0" format="Failed to read calibration Table of Contents" />
+  <Event id="184" numberOfArguments="0" format="Calibration table (Primary and secondary) not initialized" />
+  <Event id="185" numberOfArguments="2" format="Table recovery process from section:{0}[EnumValue=EtRegionType] with tableId:{1}[EnumValue=ETFlashTableId] started" />
+  <Event id="186" numberOfArguments="3" format="Table recovery process from section:{0}[EnumValue=EtRegionType] with tableId:{1}[EnumValue=ETFlashTableId] ended with status:{2}[EnumValue=ErrorTypes]" />
+  <Event id="187" numberOfArguments="1" format="Calibration table is depreciated, version 0x{0:x}" />
+  <Event id="188" numberOfArguments="1" format="failed to read eeprom table header, table id {0}" />
+  <Event id="189" numberOfArguments="1" format="failed to read eeprom table data, table id {0}" />
+  <Event id="190" numberOfArguments="3" format="Projector table is not initialized. Coefficients are {0} {1} {2}" />
+  <Event id="191" numberOfArguments="1" format="Projector table is obsolete. Current version is {0}" />
+  <Event id="192" numberOfArguments="0" format="Realtek failed to get versions" />
+  <Event id="194" numberOfArguments="2" format="RealTek FW Burner write failed: Line={0}, status={1}" />
+  <Event id="195" numberOfArguments="2" format="RealTek FW Burner read failed: Line={0}, status={1}" />
+  <Event id="196" numberOfArguments="2" format="RealTek FW Burner erase sector  failed: Line={0}, status={1}" />
+  <Event id="197" numberOfArguments="2" format="RealTek FW Burner erase flash failed: Line={0}, status={1}" />
+  <Event id="198" numberOfArguments="2" format="RealTek FW Burner burn image failed: Line={0}, status={1}" />
+  <Event id="199" numberOfArguments="3" format="RealTek FW Burner copy calibration table failed: Line={0}, tableVersion={1}, error={2}" />
+  <Event id="200" numberOfArguments="1" format="RealTek FW Burner set tag failed: status={0}" />
+  <Event id="201" numberOfArguments="2" format="RealTek FW Version is not updated: current version:{0:x}, new version:{1:x}" />
+  <Event id="202" numberOfArguments="0" format="Too much RGB i2c errors : RGB STREAM IS DISABLED" />
+  <Event id="203" numberOfArguments="1" format="No response from RGB sensor, value= {0}" />
+  <Event id="204" numberOfArguments="0" format="RGB sensor interfaces not initialized" />
+  <Event id="205" numberOfArguments="3" format="RGB control completed after {0} us: Reg = 0x{1:x}, Value = 0x{2:x}" />
+  <Event id="206" numberOfArguments="3" format="RGB pause cmd ( {0} ) Reg = 0x{1:x}, Value = 0x{2:x}" />
+  <Event id="207" numberOfArguments="3" format="RGB play cmd ( {0} ) Reg = 0x{1:x}, Value = 0x{2:x}" />
+  <Event id="208" numberOfArguments="1" format="Rgb ISP not ready for streaming: Status=0x{0:x}" />
+  <Event id="209" numberOfArguments="3" format="RGB Mipi SVR Error: Register value=0x{0:x}{1:x}. Error code={2}" />
+  <Event id="210" numberOfArguments="0" format="RGB Mipi Image Size Error" />
+  <Event id="211" numberOfArguments="0" format="RGB Mipi Feeder Over FlowError" />
+  <Event id="212" numberOfArguments="1" format="RGB Mipi Image Size Suspect Error cnt = {0}" />
+  <Event id="213" numberOfArguments="0" format="RGB USB QOS WARNING (Low Effective Fps then disable Watermark mechanism)" />
+  <Event id="214" numberOfArguments="0" format="RGB USB THROTTLED ERROR (Low Effective Fps when Watermark mechanism is disable)" />
+  <Event id="215" numberOfArguments="1" format="SKIP RGB Mipi SVR Error at the Beginning of the Stream in Frame number: {0}" />
+  <Event id="216" numberOfArguments="1" format="RGB ISP FW no operational FW booted, value= {0}, DFU required" />
+  <Event id="217" numberOfArguments="3" format="Invalid SKU type, use default SKU. depth camera {0}, RGB camera {1}, IMU {2}" />
+  <Event id="218" numberOfArguments="0" format="Stereo module not connected" />
+  <Event id="219" numberOfArguments="0" format="PWM not supported for PSR module" />
+  <Event id="220" numberOfArguments="2" format="Flow Depth - interrupt event 0x{0:x} arrived, time elapsed {1}" />
+  <Event id="221" numberOfArguments="3" format="TPROC interrupt 2SofErrorNoEof ({0}, {1}, {2})" />
+  <Event id="222" numberOfArguments="3" format="TPROC interrupt VdfBufferOverflow ({0}, {1}, {2})" />
+  <Event id="223" numberOfArguments="3" format="TPROC interrupt UvcFifoOverflow ({0}, {1}, {2})" />
+  <Event id="224" numberOfArguments="3" format="TPROC interrupt TrbFifoOverflow ({0}, {1}, {2})" />
+  <Event id="225" numberOfArguments="3" format="Depth - Auto exposure control set to {0}; mean intensity = {1}; index = {2}" />
+  <Event id="226" numberOfArguments="2" format="Depth - MS XU Exposure control, mode {0}, exposure {1}" />
+  <Event id="227" numberOfArguments="0" format="Depth - Auto exposure priority control" />
+  <Event id="228" numberOfArguments="3" format="Time stamp frequency setting is out of range {0} {1}. The value {2} is greater than 0xFFFFF" />
+  <Event id="229" numberOfArguments="3" format="{0} {1}. The time of the action is {2} (ms)" />
+  <Event id="230" numberOfArguments="0" format="Manual exposure control invalid" />
+  <Event id="232" numberOfArguments="2" format="FishEye - Sensor write Register = 0x{0:x} Value = 0x{1:x}" />
+  <Event id="233" numberOfArguments="1" format="FishEye - Set Sensor to {0} FPS" />
+  <Event id="234" numberOfArguments="1" format="FishEye - Invalid Sensor FPS {0}" />
+  <Event id="235" numberOfArguments="0" format="FishEye - Writing Sensor Configuration Settings" />
+  <Event id="236" numberOfArguments="1" format="FishEye - Image Sensor PowerUp enable {0}" />
+  <Event id="237" numberOfArguments="3" format="FishEye - Gain regs: H:0x{0:x}, M:0x{1:x}, L:0x{2:x}" />
+  <Event id="238" numberOfArguments="1" format="FishEye - Sensor Exposure Set: 0x{0:x}" />
+  <Event id="239" numberOfArguments="2" format="FishEye - Exposure regs: H:0x{0:x}, L:0x{1:x}" />
+  <Event id="240" numberOfArguments="1" format="FishEye - Sensor Gain Set: 0x{0:x}" />
+  <Event id="241" numberOfArguments="1" format="Strobe control set: {0}" />
+  <Event id="242" numberOfArguments="1" format="FishEye - Frame sync enable {0}" />
+  <Event id="243" numberOfArguments="2" format="UVC control init, PWM laser current 0x{0:x}, max 0x{1:x}" />
+  <Event id="244" numberOfArguments="3" format="UVC control get. unit : control 0x{0:x}, request 0x{1:x}, data 0x{2:x}" />
+  <Event id="245" numberOfArguments="0" format="Flow FishEye init" />
+  <Event id="246" numberOfArguments="2" format="Flow FishEye play, width {0}, height {1}" />
+  <Event id="247" numberOfArguments="1" format="Flow FishEye stop, mode {0}" />
+  <Event id="248" numberOfArguments="1" format="Depth - Gain control set to {0}" />
+  <Event id="249" numberOfArguments="1" format="Depth - Laser power control set to {0}" />
+  <Event id="250" numberOfArguments="3" format="Depth - Exposure control set to {0}, {1}, {2}" />
+  <Event id="251" numberOfArguments="1" format="Depth - Laser control set to {0}" />
+  <Event id="252" numberOfArguments="1" format="Depth - Hdr single shot control set to {0}" />
+  <Event id="253" numberOfArguments="1" format="Depth - Preset control set to {0}" />
+  <Event id="254" numberOfArguments="0" format="Failed to write extrinsic meta data" />
+  <Event id="255" numberOfArguments="0" format="Failed to write intrinsic meta data" />
+  <Event id="256" numberOfArguments="0" format="Command Base" />
+  <Event id="257" numberOfArguments="3" format="MRD (Memory Read), Return value 0x{0:x} start address 0x{1:x} end address 0x{2:x}" />
+  <Event id="258" numberOfArguments="3" format="MWD (Memory Write), Return value 0x{0:x} start address 0x{1:x} end address 0x{2:x}" />
+  <Event id="259" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="260" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="261" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="262" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="263" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="264" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="265" numberOfArguments="3" format="FRB ( Flash Read Bytes ) Return value {0} offset {1:x} size {2:x}" />
+  <Event id="266" numberOfArguments="3" format="FWB ( Flash Write Bytes ) Return value {0} offset {1:x} size {2:x}" />
+  <Event id="267" numberOfArguments="3" format="FES ( Flash Erase Sector ) Return value {0} sector index {1:x} num sectors {2:x}" />
+  <Event id="268" numberOfArguments="2" format="FEF ( Flash Erase Full Chip ) Return value {0} security code {1:x}" />
+  <Event id="269" numberOfArguments="1" format="FSRU ( Flash Status Reg Unlock ) Return value {0}" />
+  <Event id="270" numberOfArguments="2" format="FPLOCK ( Flash Lock ) Return value {0} Password {1:x}" />
+  <Event id="271" numberOfArguments="2" format="GLD (Get Logger Data) Return value {0} num bytes {1:x}" />
+  <Event id="272" numberOfArguments="1" format="GVD Return value {0:x}" />
+  <Event id="273" numberOfArguments="2" format="UPD (Shadow Update) Return value {0:x}, OTF MASK 0x{1:x}" />
+  <Event id="274" numberOfArguments="2" format="UPDI (Shadow Update Immediate) Return value {0:x}, OTF MASK 0x{1:x}" />
+  <Event id="275" numberOfArguments="2" format="GETCAL (Get Calibration Table) Return value {0:x}, phase id {1}" />
+  <Event id="276" numberOfArguments="3" format="SETCAL (Set Calibration Table) Return value {0:x}, region type {1}, phase id {2}" />
+  <Event id="277" numberOfArguments="2" format="GETINTCAL (Get internal Calib Table) Return value {0:x}, table id 0x{1:x}" />
+  <Event id="278" numberOfArguments="2" format="SETINTCAL (Set internal Calib Table) Return value {0:x}, table id 0x{1:x}" />
+  <Event id="279" numberOfArguments="3" format="ERB (EEPROM Read Byte) Return value {0:x}, start 0x{1:x}, size 0x{2:x}" />
+  <Event id="280" numberOfArguments="3" format="EWB (EEPROM Write Byte) Return value {0:x}, start 0x{1:x}, size 0x{2:x}" />
+  <Event id="281" numberOfArguments="1" format="GPWM (Get PWM Laser Range) Return value {0}" />
+  <Event id="282" numberOfArguments="2" format="SPWM (Set PWM Laser enable count) (Range:0-100) Return value {0}, enable count is {1}" />
+  <Event id="283" numberOfArguments="2" format="SET_SS (IMAGER Set sub sampling mode) Return value {0}, mode {1:x}: 0 - skipping 1 - binning" />
+  <Event id="284" numberOfArguments="1" format="INITCAL (init calibration EEPROM to flash) Return value {0:x}" />
+  <Event id="285" numberOfArguments="3" format="LOADINTCAL Load internal calibration table, Return value {0:x}, TableID {1}, section:{2}  0 - Flash dynamic sector, 1 - Flash gold sector, 2 - EEPROM" />
+  <Event id="286" numberOfArguments="1" format="DFU (Go to dfu) Return value {0:x}" />
+  <Event id="287" numberOfArguments="1" format="GETCALIBINPUTPARAMS Load  calibration table input parameters {0:x}" />
+  <Event id="288" numberOfArguments="1" format="RST (HW Reset) Return value {0:x}" />
+  <Event id="289" numberOfArguments="1" format="GETFWRECCOEFF Load FW rectification coefficients {0:x}" />
+  <Event id="290" numberOfArguments="1" format="RFBI (RealTek Flash Burn Image) Return value {0}" />
+  <Event id="291" numberOfArguments="1" format="Get Current Laser Optical Power, Return value {0}" />
+  <Event id="292" numberOfArguments="1" format="Get PWM laser enable count, Return value {0}" />
+  <Event id="293" numberOfArguments="1" format="Wait Time, Return value {0}" />
+  <Event id="294" numberOfArguments="1" format="AMCGETVER &quot;Get adavanced mode command version&quot;, Return Value {0:x}" />
+  <Event id="295" numberOfArguments="2" format="OVERFLOWSTOPEN &quot;Overflows Stop Enable-Disbale&quot;, Return Value {0:x}, enable {1}" />
+  <Event id="296" numberOfArguments="2" format="OBR (OVT ByPass read) Return value {0:x} register {1:x}" />
+  <Event id="297" numberOfArguments="3" format="OBW (OVT ByPass Write) Return value {0:x} register {1:x} value {2:x}" />
+  <Event id="298" numberOfArguments="1" format="GTEMP Read stereo module temperature, Return value {0:x}" />
+  <Event id="299" numberOfArguments="2" format="AMCSET (Advanced Mode Cmd Set), Return value {0:x}, opcode {1}" />
+  <Event id="300" numberOfArguments="3" format="AMCGET (Advanced Mode Cmd Get), Return value {0:x}, opcode {1}, data Type {2}" />
+  <Event id="301" numberOfArguments="2" format="UAME (USB Advanced Mode Enable), Return value {0:x}, enable {1}" />
+  <Event id="302" numberOfArguments="2" format="TS_HEADER (TimeStamp Header set), Return value {0:x}, Start Count is 0x{1:x}" />
+  <Event id="303" numberOfArguments="2" format="TS_UNITS (TimeStamp Units set), Return value {0:x}, Units 0x{1:x}" />
+  <Event id="304" numberOfArguments="1" format="UAMG (USB Advanced Mode Get), Return value {0:x}" />
+  <Event id="305" numberOfArguments="1" format="SETDEMOSAIC, Update demosaic mode, Return value {0:x}" />
+  <Event id="306" numberOfArguments="1" format="GETAESTP (Get AE setPoint), Return value {0:x}" />
+  <Event id="307" numberOfArguments="2" format="SETAESTP (Set AE setPoint), Return value {0:x}, SetPoint {1}" />
+  <Event id="308" numberOfArguments="1" format="GETAEDRK (Get AE dark thld), Return value {0:x}" />
+  <Event id="309" numberOfArguments="2" format="SETAEDRK (Set AE dark thld), Return value {0:x}, Dark Threshold {1}" />
+  <Event id="310" numberOfArguments="1" format="GETAEBRT (Get AE Bright thld), Return value {0:x}" />
+  <Event id="311" numberOfArguments="2" format="SETAEBRT (Set AE Bright thld), Return value {0:x}, Bright Threshold {1}" />
+  <Event id="312" numberOfArguments="2" format="SETCOLCORR  (Set Color Correction Matrix), Return value {0:x}, Matrix {1}" />
+  <Event id="313" numberOfArguments="3" format="MMR (Motion Module Read), Return value {0:x} offset {1:x} size {2}" />
+  <Event id="314" numberOfArguments="3" format="MMW (Motion Module Write), Return value {0:x} offset {1:x} size {2}" />
+  <Event id="315" numberOfArguments="2" format="PFD (Power Feature Disable), Return value {0:x}, Enable {1}" />
+  <Event id="316" numberOfArguments="2" format="PTENABLEMODE (Projector Tester Enable Mode), Return value {0:x}, mode {1}" />
+  <Event id="317" numberOfArguments="3" format="PTEYESAFETYVAL, (Projector Tester EyeSafety Values Set), Return value {0:x}, Max count {1}, Max ratio {2}" />
+  <Event id="318" numberOfArguments="2" format="PTWINDOWCNT, (Projector Tester Window Count Value Set), Return value {0:x}, Window count {1}" />
+  <Event id="319" numberOfArguments="2" format="PTPWMSTART, (Projector Tester PWM Start), Return value {0:x}, Start {1}" />
+  <Event id="320" numberOfArguments="3" format="PTENABLEDISABLECNT, (Projector Tester Enable Disable Count), Return value {0:x}, Enable cnt {1}, Disable cnt {2}" />
+  <Event id="321" numberOfArguments="2" format="STAT_EN (Stat Enable), Return value {0:x}, Enable {1}" />
+  <Event id="322" numberOfArguments="1" format="STAT_HIST (Stat Hist read), Return value {0:x}" />
+  <Event id="323" numberOfArguments="1" format="STAT_FRM (Stat Frame read), Return value {0:x}" />
+  <Event id="324" numberOfArguments="1" format="SETAEROI (Set AE ROI), Return value {0:x}" />
+  <Event id="325" numberOfArguments="1" format="GETAEROI (Get AE ROI), Return value {0:x}" />
+  <Event id="326" numberOfArguments="1" format="MM_TEMP (Read IMU temperature from MM I2C device), Return value {0:x}" />
+  <Event id="327" numberOfArguments="1" format="MM_UPDATE_FW (Update motion module firmware), Return value {0:x}" />
+  <Event id="328" numberOfArguments="1" format="TS_GET_UNITS (Timestamp get units), Return value {0:x}" />
+  <Event id="329" numberOfArguments="1" format="GETDEPTHCOEFF (Get depth coefficients with footer that provides, sensor output res and pipe output res), Return value {0:x}" />
+  <Event id="330" numberOfArguments="1" format="STACK_STATUS_GET (Get stack statuses of all threads), Return value {0:x}" />
+  <Event id="331" numberOfArguments="2" format="SETDEPTHUNIT (Set depth units in micrometer. Range 1 - 100000), Return value {0:x}, depthUnit {1}" />
+  <Event id="332" numberOfArguments="1" format="GETDEPTHUNIT (Get depth units in micrometer. Range 1 - 100000), Return value {0:x}" />
+  <Event id="333" numberOfArguments="2" format="DEPTH_EU_ERROR_SET &quot;Set depth extension unit error control value&quot;, Return value {0:x}, error {1}" />
+  <Event id="334" numberOfArguments="2" format="SYNC (Sync Support) , Return value {0:x}, sync support {1}" />
+  <Event id="335" numberOfArguments="3" format="MMER (Motion Module EEPROM Read), Return value {0:x} offset {1:x} size {2}" />
+  <Event id="336" numberOfArguments="3" format="MMEW (Motion Module EEPROM Write), Return value {0:x} offset {1:x} size {2}" />
+  <Event id="337" numberOfArguments="1" format="CALIBRECALC &quot;Calibration recalc and update on the fly&quot;, Return value {0:x}" />
+  <Event id="338" numberOfArguments="1" format="LOCK_EEPROM &quot;Lock EEPROM permanently&quot;, Return value {0:x}" />
+  <Event id="339" numberOfArguments="1" format="GETMMEXTRNSIC (Read extrinsic table, sync between MM to stereo module table), Return value {0:x}" />
+  <Event id="340" numberOfArguments="1" format="SETMMEXTRNSIC (Write extrinsic table, sync between MM to stereo module table), Return value {0:x}" />
+  <Event id="341" numberOfArguments="2" format="OEMV (major supported OEM structure version and flash), supported {0:x}, actual from flash {1:x}" />
+  <Event id="342" numberOfArguments="1" format="OEMW (Write OEM settings), Return value {0:x}" />
+  <Event id="343" numberOfArguments="1" format="OEMR (Read  OEM settings), Return value {0:x}" />
+  <Event id="344" numberOfArguments="0" format="reserved" />
+  <Event id="345" numberOfArguments="1" format="FVT (Run Functional Validation Test command) Return value {0:x}" />
+  <Event id="346" numberOfArguments="2" format="CANCEL_AUTO_UPDATE (Cancel MM and ISP automatic FW update), Return value {0:x}, enable {1}" />
+  <Event id="347" numberOfArguments="2" format="MIPI_TEST_EN, Return value {0:x}, port {1}" />
+  <Event id="348" numberOfArguments="2" format="MIPI_CNT_RST, Return value {0:x}, port {1}" />
+  <Event id="349" numberOfArguments="2" format="MIPI_CNT_GET, Return value {0:x}, port {1}" />
+  <Event id="350" numberOfArguments="2" format="RGB_FLIP_ENABLE, Return value {0:x}, Enable {1}" />
+  <Event id="351" numberOfArguments="1" format="EGPIO_READ, Return value {0:x}" />
+  <Event id="352" numberOfArguments="1" format="FLAGB_READ, Return value {0:x}" />
+  <Event id="353" numberOfArguments="1" format="CALIBRESTOREDEFAULT (Copy Gold calibration (RW1) sector to Dynamic calibration (RW0) sector), Return value {0:x}" />
+  <Event id="354" numberOfArguments="3" format="SETINTCALNEW (Set internal Calibration table) Return value {0:x}, table id 0x{1:x}, burn mode {2:x}" />
+  <Event id="355" numberOfArguments="2" format="SETMMEXTRNSICNEW (Write extrinsic table, sync between MM to stereo module table), Return value {0:x} burn mode {1:x}" />
+  <Event id="356" numberOfArguments="1" format="AEFACE_CFG  ( Configure exposures for AE Face Mode) Return value {0:x}" />
+  <Event id="357" numberOfArguments="1" format="AEFACE_START ( Start AE Face Mode) Return value {0:x}" />
+  <Event id="358" numberOfArguments="0" format="CALIBRESTOREEPROM restore all calibration data from EEPROM to Gold and dynamic flash sectors" />
+  <Event id="359" numberOfArguments="2" format="SETUSB2BWLIMIT &quot;Set USB2 bandwidth limitation. The provided number is percent from USB2 max bandwidth, which is 40MBps. Range is 1 - 100. Return value {0:x}, value {1}&quot;" />
+  <Event id="360" numberOfArguments="2" format="HWM_D4M_MODE TEMPORARY CMD: Set HWM in Slave Mode Return value {0:x}, mode {1}" />
+  <Event id="361" numberOfArguments="3" format="SET_CAM_SYNC (Set Multi Camera feature support Master/Slave), Return value {0:x}, mode {1} 0-default, 1-master, 2-slave {2}" />
+  <Event id="362" numberOfArguments="1" format="GET_CAM_SYNC (Get Multi Camera status), Return value {0:x}" />
+  <Event id="363" numberOfArguments="2" format="D4M_OPER_MODE_EN, Return value {0:x}, enable {1} (0-debug mode with 1024 bytes, 1-oper mode with 15 bytes)" />
+  <Event id="364" numberOfArguments="1" format="D4M_OPER_MODE_GET, Return value {0:x}" />
+  <Event id="365" numberOfArguments="2" format="SETAEDB - Auto exposure dead band set, Return value {0:x}, Dead band {1}" />
+  <Event id="366" numberOfArguments="1" format="GETAEDB (Get auto exposure dead band), Dead band {0}" />
+  <Event id="367" numberOfArguments="2" format="PRESET_CFG Return value {0:x}, Index {1}" />
+  <Event id="368" numberOfArguments="2" format="PRESET_APPLY Return value {0:x}, Index {1}" />
+  <Event id="369" numberOfArguments="1" format="PRESET_QUERY Return value {0:x}" />
+  <Event id="370" numberOfArguments="2" format="PRESET_GET Return value {0:x}, index {1}" />
+  <Event id="371" numberOfArguments="2" format="LASER_EN Return value {0:x}, enable {1}" />
+  <Event id="372" numberOfArguments="1" format="LASER_GET Return value {0:x}" />
+  <Event id="373" numberOfArguments="3" format="RGB_ROI_SET Return value {0:x}, Top {1}, Bottom {2}" />
+  <Event id="374" numberOfArguments="1" format="RGB_ROI_GET Return value {0:x}" />
+  <Event id="375" numberOfArguments="2" format="SET_CALIB_FRAMES Return value {0:x}, Num of calib frames {1}" />
+  <Event id="376" numberOfArguments="1" format="GET_CALIB_FRAMES Return value {0:x}" />
+  <Event id="377" numberOfArguments="0" format="CALIBUPDATEISP restore  calibration data from FLASH to ISP(Realtek)" />
+  <Event id="378" numberOfArguments="1" format="GETASICTEMP Read Asic module temperature, Return value {0:x}" />
+  <Event id="379" numberOfArguments="2" format="SETSUBPRESET Set SubPreset buffer, Return value {0:x}, BuffSize {1}" />
+  <Event id="380" numberOfArguments="1" format="GETSUBPRESET Get the current SubPreset buffer, Return value {0:x}" />
+  <Event id="381" numberOfArguments="1" format="GETSUBPRESETNAME Get the current SubPreset name, Return value {0:x}" />
+  <Event id="382" numberOfArguments="1" format="RECPARAMSGET Get the REC params for all resolutions, Return value {0:x}" />
+  <Event id="383" numberOfArguments="0" format="LASERONCONST, Write,  BYTES, 1000, &quot;Enable laser On constantly (GS SKU)&quot;" />
+  <Event id="384" numberOfArguments="1" format="CUSTOM_CMD Custom command, Return value {0:x}" />
+  <Event id="385" numberOfArguments="1" format="PWMTESTSTATUS, Return value {0:x}" />
+  <Event id="386" numberOfArguments="2" format="PMS (Product module Set), Return value {0:x}, isModule {1}" />
+  <Event id="387" numberOfArguments="1" format="PMG (Product is module Get), Return value {0:x}" />
+  <Event id="389" numberOfArguments="2" format="PROFILER_EN Enable/Disable FW Profiler, Return value {0:x}, State {1}" />
+  <Event id="390" numberOfArguments="1" format="DFU_RESET_CNT Reset Downgrade DFU counter, Return value {0:x}" />
+  <Event id="512" numberOfArguments="1" format="Color Correction invalid matrix index {0}" />
+  <Event id="513" numberOfArguments="3" format="PMU power down U3 - dummy({0}) ; dummy({1}) ; dummy({2})" />
+  <Event id="514" numberOfArguments="1" format="PMU power up U3 : {0} us" />
+  <Event id="515" numberOfArguments="3" format="OsEvent error 0x{0:x} ( events : 0x{1:x}, Op : {2} )" />
+  <Event id="516" numberOfArguments="3" format="IMU.C line {0}, IMU error 0x{1:x}, MM error 0x{2:x}" />
+  <Event id="517" numberOfArguments="1" format="external trigger enable {0}" />
+  <Event id="518" numberOfArguments="1" format="Invalid mode {0}. (allowed modes 0/1/2)" />
+  <Event id="519" numberOfArguments="1" format="unable to configure values Tester mode: {0}" />
+  <Event id="520" numberOfArguments="2" format="Test mode not valid, transient is permitted only from ModeDisable -&gt; ModeMesaurment or ModeDisable -&gt; etTesterModeLoadAndTest Trying to move from: {0} to {1}" />
+  <Event id="521" numberOfArguments="3" format="One parameter (or more) is not valid.  countMax = {0}, maxRatio = {1}, invertOutput = {2}" />
+  <Event id="522" numberOfArguments="0" format="Projector tester began" />
+  <Event id="523" numberOfArguments="0" format="Projector tester ends" />
+  <Event id="525" numberOfArguments="3" format="firmware update failed. reason: {0} ( {1}, {2} )" />
+  <Event id="524" numberOfArguments="3" format="Meta Data frame loss found for Fish Eye! expected frame ID:{0} received frame ID:{1} Received frame count: {2}" />
+  <Event id="526" numberOfArguments="1" format="Firmware update succeed. New version is {0}" />
+  <Event id="527" numberOfArguments="0" format="Motion Module firmware update failed because IMUThread is active" />
+  <Event id="528" numberOfArguments="0" format="Motion Module firmware update failed because it's not connected" />
+  <Event id="529" numberOfArguments="3" format="Flow USB OverFlows Ep Index = {0} OverFlow Cntr = {1}  (epNum = {2})" />
+  <Event id="530" numberOfArguments="3" format="Flow USB OverFlows Error in EndPoint Index = {0} &gt; {1} (epNum = {2})" />
+  <Event id="531" numberOfArguments="3" format="Flow USB OverFlows EpNum = {0} OverFlow Cntr = {1} &gt; {2} Then Restart stream" />
+  <Event id="532" numberOfArguments="3" format="Flow USB OverFlows EpNum = {0} OverFlow Cntr = {1} &lt; {2}" />
+  <Event id="533" numberOfArguments="1" format="Flow USB OverFlows Restore Interrupt Usb Overflows for endPoint = {0}" />
+  <Event id="534" numberOfArguments="2" format="Color correction matrix changed from {0} to {1}" />
+  <Event id="535" numberOfArguments="3" format="SCP Depth units set parameter wrong. Requested val = {0}, Min val = {1}, Max val = {2}" />
+  <Event id="536" numberOfArguments="1" format="Flow Depth error {0}[EnumValue=ETXUReportedErrors] reported" />
+  <Event id="537" numberOfArguments="3" format="HID get feature, report id: {0}, power state ( on &lt; 3 ): {1}, interval: {2}" />
+  <Event id="538" numberOfArguments="3" format="HID set feature, report id: {0}, power state ( on &lt; 3 ): {1}, interval: {2}" />
+  <Event id="539" numberOfArguments="3" format="HID set unsupported feature, field:{0}, request:{1}-&gt;{2}" />
+  <Event id="540" numberOfArguments="3" format="IMU thread performance {0} us from last attempt ( err:0x{1:x} ) readout loop {2} us" />
+  <Event id="541" numberOfArguments="0" format="IMU thread active ( MM I2C access is blocked, MM EEPROM access is RO )" />
+  <Event id="542" numberOfArguments="3" format="MM EEPROM CRC failed, size 0x{0:x} crc32 0x{1:x} ( expected : 0x{2:x} )" />
+  <Event id="543" numberOfArguments="0" format="Failed to get temperature from PVT sensor" />
+  <Event id="544" numberOfArguments="1" format="Projector temperature is out of range {0} C" />
+  <Event id="545" numberOfArguments="0" format="EEPROM write protected register access failed" />
+  <Event id="546" numberOfArguments="0" format="EEPROM write failed because it is permanently locked" />
+  <Event id="547" numberOfArguments="1" format="Sensor temperature is out of range {0} C" />
+  <Event id="548" numberOfArguments="0" format="MM and Optic module not synchronized. Please update MM extrinsic" />
+  <Event id="549" numberOfArguments="0" format="RGB camera and Optic module not synchronized. Please update RGB camera extrinsic" />
+  <Event id="550" numberOfArguments="3" format="Extrinsic table set - received table id:{0} is wrong. allowed IDs are {1} or {2}" />
+  <Event id="551" numberOfArguments="0" format="Reset after Motion Module FW Upgraded" />
+  <Event id="552" numberOfArguments="0" format="Motion Module firmware update is required" />
+  <Event id="553" numberOfArguments="1" format="Binary Command size exceeds 1020 {0}" />
+  <Event id="554" numberOfArguments="0" format="OEM write error. OEM section is locked" />
+  <Event id="555" numberOfArguments="2" format="OEM write error. OEM ID is not compilable to flash version. Flash ID: {0} Received ID:{1}" />
+  <Event id="556" numberOfArguments="0" format="OEM section error - Already locked" />
+  <Event id="557" numberOfArguments="0" format="OEM section - Already unlocked" />
+  <Event id="558" numberOfArguments="2" format="control with no-mapping to flash. unit {0}, control {1}" />
+  <Event id="559" numberOfArguments="3" format="control value out-of-range, unit {0}, control {1}, value 0x{2:x}" />
+  <Event id="561" numberOfArguments="0" format="OEM section - status changed to locked" />
+  <Event id="562" numberOfArguments="0" format="OEM section - status changed to unlocked" />
+  <Event id="563" numberOfArguments="3" format="IMU frame loss ! Event : {0}, expected fame : {1}, actual : {2}" />
+  <Event id="564" numberOfArguments="3" format="IMU thread performance, event id {0}, {1}/10s, miss/retr : {2:x}" />
+  <Event id="565" numberOfArguments="2" format="MM power change state error, expected : {0}, actual : {1}" />
+  <Event id="566" numberOfArguments="3" format="Meta Data frame loss found! EP:{0} received frame count:{1} internal frame count: {2}" />
+  <Event id="567" numberOfArguments="3" format="IMU dev:{0} power on register expected:0x{1:x}, actual:0x{2:x}" />
+  <Event id="568" numberOfArguments="1" format="IMU SW reset {0} us" />
+  <Event id="574" numberOfArguments="1" format="Unable to read Projector temperature,return value:{0}" />
+  <Event id="575" numberOfArguments="0" format="ISP firmware update is required" />
+  <Event id="576" numberOfArguments="2" format="Hw Config - interrupt event 0x{0:x} arrived, time elapsed {1}" />
+  <Event id="577" numberOfArguments="3" format="HW config - OTF status inconsistent {0}, {1}, 0x{2:x}" />
+  <Event id="578" numberOfArguments="0" format="HW config - OTF update is busy" />
+  <Event id="579" numberOfArguments="3" format="HW config - OTF time between {0} SOFs {1}, instead of expected {2}" />
+  <Event id="580" numberOfArguments="3" format="HW config - OTF time between {0} EOFs {1}, instead of expected {2}" />
+  <Event id="582" numberOfArguments="3" format="IMU Sensor {0} ( 1-&gt;acc, 2-&gt;gyro ) Control {1} ( 0-&gt;disable, 1-&gt;enable ) UseFlag {2} ( bit0-&gt;Hid, bit1-&gt;Internal )" />
+  <Event id="583" numberOfArguments="3" format="IMU thread performance, max ts diff {0} us, max interval {1} us, asic ts {2}" />
+  <Event id="584" numberOfArguments="1" format="ISP LSC Update faild {0}" />
+  <Event id="586" numberOfArguments="1" format="PWM LD_err = {0} then Switch Off laser" />
+  <Event id="587" numberOfArguments="3" format="PWM Flag B Check On Init, mode {0}, flagBEyeSafetyErrorVal = {1}, test pass {2}" />
+  <Event id="588" numberOfArguments="3" format="EyeSafety Version {0}.{1}, UVC Version {2:x}" />
+  <Event id="589" numberOfArguments="2" format="PWM Flag B Error ( stalled at {0}, expected {1} )" />
+  <Event id="590" numberOfArguments="0" format="Command executed - burn to dynamic region. Although only 1 (dynamic region) or 2 (both regions, dynamic and gold) are valid parameters" />
+  <Event id="591" numberOfArguments="0" format="Auto Exposure Face Mode ERROR - Frame Rate = 0 in Start" />
+  <Event id="592" numberOfArguments="0" format="Auto Exposure Face Mode ERROR - Sensor Type = GS" />
+  <Event id="593" numberOfArguments="1" format="Imager Shadow update pending 0x{0:x}" />
+  <Event id="594" numberOfArguments="0" format="Imager shadow update completed from play" />
+  <Event id="595" numberOfArguments="0" format="Imager shadow update completed from SOF" />
+  <Event id="596" numberOfArguments="2" format="Calibration Table ID = {0} not copied from EEPROM to flash, error = {1}" />
+  <Event id="597" numberOfArguments="1" format="Calibration Table ID = {0} copied from EEPROM to flash" />
+  <Event id="598" numberOfArguments="0" format="Table version 0xFFFF is not valid" />
+  <Event id="599" numberOfArguments="1" format="Allowed value is between 1 - 100. received value is = {0}" />
+  <Event id="600" numberOfArguments="1" format="USB 2 max BW set to:{0} percent of max capacity, which is 480MBps" />
+  <Event id="601" numberOfArguments="3" format="Max allowed BW is {0}(MBps), {1}(MBps) is currently being used. Requested in addition is {2}(MBps)" />
+  <Event id="605" numberOfArguments="0" format="USB D4M Descriptor Error" />
+  <Event id="606" numberOfArguments="3" format="Mipi Rcv D4M Error  freqMin {0}   maxMax {1}  freqConfig {2}" />
+  <Event id="607" numberOfArguments="0" format="FlowRaw play" />
+  <Event id="608" numberOfArguments="1" format="FlowRaw stop, mode {0}" />
+  <Event id="609" numberOfArguments="2" format="FlowRaw invalid system state {0} (should be paused {1})" />
+  <Event id="610" numberOfArguments="1" format="FlowRaw Stream error, eP is not correct = {0} (not 3 or 4)" />
+  <Event id="611" numberOfArguments="2" format="D4M imager is detected in {0} mSec, sensor type {1}, continue as D4M Bridge SKU" />
+  <Event id="612" numberOfArguments="0" format="D4M WA - disconnect ISP from I2C bus" />
+  <Event id="613" numberOfArguments="0" format="D4M imager doesn't recognize the sensors, set product type to GS sensor as default" />
+  <Event id="616" numberOfArguments="3" format="D4M imager START  time {0}  status {1}   {2}" />
+  <Event id="617" numberOfArguments="3" format="D4M imager STOP   time {0}  status {1}   {2}" />
+  <Event id="618" numberOfArguments="3" format="D4M imager CONFIGURE time {0}  type {1}   {2}" />
+  <Event id="619" numberOfArguments="3" format="Slave Play  time {0}   type   {1}  status {2}" />
+  <Event id="620" numberOfArguments="3" format="Slave Stop  time {0}   type   {1}  {2}" />
+  <Event id="621" numberOfArguments="3" format="Slave Error  cmd {0}   status {1}  {2}" />
+  <Event id="622" numberOfArguments="3" format="Slave Configure  dataType {0:x}   height {1}  width {2}" />
+  <Event id="623" numberOfArguments="3" format="FlowRaw Probe  interfaceIndex {0}  formatIndex {1} frameRate {2}" />
+  <Event id="624" numberOfArguments="0" format="This command is no longer supported, please use CALIBRESTOREEPROM instead" />
+  <Event id="625" numberOfArguments="3" format="RGB Put MSG - FlowRgbRestart  ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="626" numberOfArguments="3" format="Multi camera, RGB not synchronized due to wrong parameters. Depth FPS:{0}, RGB FPS:{1}, AE priority: {2}" />
+  <Event id="627" numberOfArguments="0" format="Multi camera, RGB not synchronized. Depth stream not detected" />
+  <Event id="628" numberOfArguments="2" format="Multi camera, Fish Eye not synchronized due to wrong parameters. Depth FPS:{0}, Fish Eye FPS:{1}" />
+  <Event id="629" numberOfArguments="0" format="Multi camera, Fish Eye not synchronized. Depth stream not detected" />
+  <Event id="630" numberOfArguments="2" format="Current Interrupts differ from i2c Slave: cur {0:x} != i2cSlave {1:x}" />
+  <Event id="631" numberOfArguments="2" format="Module temperature -{0}, disable PWM current PWM enable value {1}" />
+  <Event id="632" numberOfArguments="1" format="Laser Blocked due to camera projector temperature sensor is invalid, ASIC temperature valid = {0}" />
+  <Event id="633" numberOfArguments="3" format="Sync Update - Restart DepthIR stream: From EP {0}, SyncEn: {1}, FSIN: {2}" />
+  <Event id="634" numberOfArguments="3" format="Frame Delay - Restart stream {0}, resetCnt: {1}, asicTemp: {2}" />
+  <Event id="635" numberOfArguments="3" format="CAM REC interrupt Restart stream {0}, dummy({1}), dummy({2})" />
+  <Event id="636" numberOfArguments="3" format="RGB Put MSG - FlowRgbPlay ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="637" numberOfArguments="3" format="RGB Put MSG - FlowRgbStop ( msgQ : {0:x}, delay : {1} ms, msg : {2:x} )" />
+  <Event id="638" numberOfArguments="3" format="Reset frame counter EP: {0}, isStreaming: {1}, dummy({2})" />
+  <Event id="639" numberOfArguments="3" format="LASER BLOCKED - Invalid SKU detected, SKU type: {0}, Sensor Type: {1}, Is MIPI: {2}" />
+  <Event id="640" numberOfArguments="3" format="UVC control get current unit {0}[EnumValue=ETVideoFunctionID], control {1}, data 0x{2:x}" />
+  <Event id="641" numberOfArguments="0" format="ISP AE ROI failed to set - AE control is disabled" />
+  <Event id="642" numberOfArguments="1" format="ISP AE ROI failed to set - Given rect is incorrect (id: {0})" />
+  <Event id="643" numberOfArguments="0" format="ISP AE ROI failed to set - Given rect is bigger than streaming res" />
+  <Event id="644" numberOfArguments="0" format="ISP AE ROI failed to set - RGB sensor is not streaming" />
+  <Event id="645" numberOfArguments="0" format="ISP AE ROI failed to set - failed to write sensor regs" />
+  <Event id="647" numberOfArguments="2" format="Depth - Auto exposure LUX update {0} =&gt; Isp index {1}" />
+  <Event id="648" numberOfArguments="1" format="Number of calibration metadata frames: {0}" />
+  <Event id="649" numberOfArguments="0" format="LASER BLOCKED - Invalid SKU detected, IMU without RGB. SKU set to PSR" />
+  <Event id="650" numberOfArguments="2" format="Failed to write Data on the Flash because the table type is wrong. Expected ID: {0:x} Received ID: {1:x}" />
+  <Event id="651" numberOfArguments="2" format="Temperature updated, Asic sensor temperature: {0}, Projector sensor temperature: {1}" />
+  <Event id="652" numberOfArguments="3" format="Depth - Auto exposure Restart Intensity = {0} &lt; {1} = MIN then set index to {2}" />
+  <Event id="653" numberOfArguments="3" format="Depth - Auto exposure Fine Tuning  Magnitude Update {0} =&gt; Final update {1}  set Index {2}" />
+  <Event id="654" numberOfArguments="2" format="Flow Stream Play Entry - EpNum: {0} ; StreamState: {1}" />
+  <Event id="655" numberOfArguments="2" format="Flow Stream Stop Entry - EpNum: {0} ; StreamState: {1}" />
+  <Event id="656" numberOfArguments="2" format="Flow Stream Restart Entry - EpNum: {0} ; StreamState: {1}" />
+  <Event id="657" numberOfArguments="1" format="Changing the calibration metadata frames is not allowed in streaming - EpNum: {0}" />
+  <Event id="658" numberOfArguments="3" format="Set Commit control, format {0}, frame {1}, FPS {2}" />
+  <Event id="659" numberOfArguments="3" format="Illegal Stream State - EpNum: {0} ; CurStreamState: {1} ; RequestedStreamState: {2}" />
+  <Event id="660" numberOfArguments="1" format="RGB ISP Power: {0}" />
+  <Event id="661" numberOfArguments="3" format="Depth - Auto exposure Dynamic DeadBand:  maxIndex = {0}   maxDeadBand {1}   currDeadBand {2}" />
+  <Event id="662" numberOfArguments="2" format="SubPreset - CtrlID: {0} ; Value: {1}" />
+  <Event id="663" numberOfArguments="1" format="SubPreset feature is NOT supported by this sensor - BuffSize: {0}" />
+  <Event id="664" numberOfArguments="1" format="SubPreset - Incorrect header size - {0}" />
+  <Event id="665" numberOfArguments="1" format="SubPreset - Control function was NOT provided - CtrlID: {0}" />
+  <Event id="666" numberOfArguments="2" format="SubPreset - The given buffer size is different than expected - GivenSize: {0} ; ExpectedSize: {1}" />
+  <Event id="667" numberOfArguments="2" format="SubPreset - Item Index: {0} ; Item Iteration: {1}" />
+  <Event id="668" numberOfArguments="2" format="SubPreset - Out of range - GivenIndex: {0} ; NumOfElements: {1}" />
+  <Event id="669" numberOfArguments="1" format="SubPreset doesn't support different control IDs at the same command ({0})" />
+  <Event id="670" numberOfArguments="0" format="SubPreset - Gain/ManExp control could NOT be applied when AE is On" />
+  <Event id="671" numberOfArguments="0" format="SubPreset with LP Mode control: a. MUST contain symmetrical sequence ; b. MUST starts with 0 control value ; c. LP Mode control MUST be On ; d. Supported in GS sensor" />
+  <Event id="672" numberOfArguments="0" format="SubPreset - Given controls could NOT be applied at the same frame" />
+  <Event id="673" numberOfArguments="1" format="SubPreset - Cannot change UVC controls while SubPreset contains the same controls - ctrl: {0}" />
+  <Event id="674" numberOfArguments="3" format="Calib REC Coeff Params calc error: different Coeff values between EEPROM and FW for mode {0}, width {1}, height {2}" />
+  <Event id="675" numberOfArguments="3" format="Calib REC Coeff Params calc fix: resolution {0}x{1}, iteration {2}" />
+  <Event id="676" numberOfArguments="3" format="Calib REC Coeff Params calc error: NO Coeff params for resolution {0}X{1} after max iteration {2}" />
+  <Event id="677" numberOfArguments="0" format="UVC app is using AWGI descriptor (depth + HID + WinUsb)" />
+  <Event id="678" numberOfArguments="0" format="UVC app is using AWGI advanced mode descriptor (depth + HID + WinUsb)" />
+  <Event id="679" numberOfArguments="0" format="Cannot apply Laser On Const CMD while SubPreset contains LP Mode" />
+  <Event id="680" numberOfArguments="1" format="Phys endpoint {0} is not mapped to logical ep, need to add to endpoints map LUT" />
+  <Event id="681" numberOfArguments="0" format="Could not load ON Semi BootData" />
+  <Event id="682" numberOfArguments="0" format="UVC app is using AWG descriptor for USB2 (depth + WinUsb)" />
+  <Event id="683" numberOfArguments="0" format="UVC app is using D465 descriptor (depth + rgb + WinUsb)" />
+  <Event id="684" numberOfArguments="0" format="Preset Scp change cause to re-start stream" />
+  <Event id="685" numberOfArguments="2" format="ISP Standby Failed. Enter Standby: {0} ; Step: {1}" />
+  <Event id="686" numberOfArguments="0" format="IMU too many interrupts" />
+  <Event id="687" numberOfArguments="2" format="OsThread create error. Expected threads to create: 0x{0:x} Actually created: 0x{1:x}" />
+  <Event id="688" numberOfArguments="3" format="Pwm calc laser count: required power {0}, target power {1}, count {2}" />
+  <Event id="689" numberOfArguments="3" format="Host Configuration1 INTFCE({0}) W({1}) H({2}) (Interfaces: 0=DPT_CTRL 1=I 2=Z 3=C 4-RGB_CTRL 5=RGB_STREAM)" />
+  <Event id="690" numberOfArguments="3" format="Host Configuration2 INTFCE({0}) FPS({1}) MaxPayloadSize({2})" />
+  <Event id="691" numberOfArguments="2" format="Start Self/Tare Calibration process ({0}) ; Status: {1}" />
+  <Event id="692" numberOfArguments="2" format="Get Self/Tare Calibration Result ({0}) ; Status: {1}" />
+  <Event id="693" numberOfArguments="1" format="Waited too long (more than {0} sec) for IMU suspend update" />
+  <Event id="694" numberOfArguments="3" format="Depth - Auto exposure - (dummy({0}-{1})) pScore = {2:f}" />
+  <Event id="695" numberOfArguments="3" format="Depth - Auto exposure - (dummy({0}-{1})) ExpScore = {2:f}" />
+  <Event id="696" numberOfArguments="3" format="Depth - Auto exposure - (dummy({0})) hyst = {1}, expMultiplier = {2:f}" />
+  <Event id="1024" numberOfArguments="2" format="THERMLOOP: No convergence for max loop trials {0}, err[k] {1:f}" />
+  <Event id="1025" numberOfArguments="1" format="THERMLOOP: cycle time {0}" />
+  <Event id="1026" numberOfArguments="3" format="UVC control ({0}[EnumValue=ETVideoFunctionID]:{1}) handle completed. status 0x{2:x}" />
+  <Event id="1027" numberOfArguments="1" format="EyeSafety failed, reason {0}[EnumValue=ETEyeSafetyErrorCode]" />
+  <Event id="1028" numberOfArguments="1" format="HW_LUT_HANDLER: LUT calculation failed, reason {0}" />
+  <Event id="1029" numberOfArguments="2" format="STREAM_FAILURE - FLOW_DEPTH: script 0x{0:x} failed to execute, reason {1}" />
+  <Event id="1030" numberOfArguments="0" format="FLOW_DEPTH: wrong configuration" />
+  <Event id="1031" numberOfArguments="2" format="Script validation of TableId 0x{0:x} finished with error code {1}[EnumValue=ErrorTypes]" />
+  <Event id="1032" numberOfArguments="1" format="Efuse validation failed, reason {0}" />
+  <Event id="1033" numberOfArguments="2" format="LD: access failed reason {0}, size {1}" />
+  <Event id="1034" numberOfArguments="1" format="UvcStream: stream request is not supported, reason {0}" />
+  <Event id="1035" numberOfArguments="3" format="THERMLOOP: No bit exact on PZR {0}, unit {1}, step {2}" />
+  <Event id="1037" numberOfArguments="1" format="THERMLOOP: No MC configuration PZR {0}" />
+  <Event id="1036" numberOfArguments="3" format="STREAM_FAILURE - THERMLOOP: V bias exceeds limit PZR {0}, Vb ({1}, {2:f})" />
+  <Event id="1038" numberOfArguments="3" format="THERMLOOP: I bias exceeds limit PZR {0}, Ib ({1}, {2:f})" />
+  <Event id="1039" numberOfArguments="3" format="Temperature {0}[EnumValue=ETThermistorSource]({1}) is {2:f}" />
+  <Event id="1040" numberOfArguments="3" format="EFUSE: Invalid EFUSE, not setting calibration registers ({0}) ({1}) ({2})" />
+  <Event id="1041" numberOfArguments="3" format="THERMLOOP: debug PZR {0}, unit {1}, value {2:f}" />
+  <Event id="1042" numberOfArguments="0" format="Timeout waiting for response from SecCtrl" />
+  <Event id="1043" numberOfArguments="2" format="APD: Last (VSense = 0x{0:x}, VTarget = 0x{1:x})" />
+  <Event id="1044" numberOfArguments="3" format="THERMLOOP: failed ({0}, {1}, status = {2}[EnumValue=ErrorTypes])" />
+  <Event id="1045" numberOfArguments="3" format="THERMLOOP: mailbox failed (command = {0}, {1}, status = {2}[EnumValue=ErrorTypes])" />
+  <Event id="1046" numberOfArguments="3" format="THERMLOOP: failed (table = 0x{0:x}, {1}, status = {2}[EnumValue=ErrorTypes])" />
+  <Event id="1047" numberOfArguments="3" format="THERMLOOP: state = ({0}, {1}, {2}[EnumValue=ETPzrThermalLoopState])" />
+  <Event id="1048" numberOfArguments="2" format="APD Over current exceed (Current Value = {0}, MaxLimitThreshold = {1})" />
+  <Event id="1049" numberOfArguments="2" format="APD FLYBACK: start command was failed (current state = {0}, error = {1})" />
+  <Event id="1050" numberOfArguments="3" format="Algo config: failed (table = 0x{0:x}, {1}, status = {2}[EnumValue=ErrorTypes])" />
+  <Event id="1051" numberOfArguments="3" format="THERMLOOP: Init phase exceeds 500ms timeout ({0}, {1}, {2})" />
+  <Event id="1052" numberOfArguments="3" format="THERMLOOP: Init phase finished time ({0}, {1}, {2})" />
+  <Event id="1053" numberOfArguments="3" format="Algo Thermal Loop - Temperature\Delay = {0}, {1}, {2:f}" />
+  <Event id="1054" numberOfArguments="3" format="STREAM_FAILURE - INTERRUPT: LD Alarm Mailbox({0}[EnumValue=ErrorTypes]), LdAlarm({1}[EnumValue=eLdAlarm]), HardErrorStatus({2}[EnumValue=ETHardErrorStatus])" />
+  <Event id="1055" numberOfArguments="3" format="STREAM_FAILURE - INTERRUPT: Depth hard error status({0}, {1}, HardErrorStatus({2}[EnumValue=ETHardErrorStatus])" />
+  <Event id="1056" numberOfArguments="2" format="ISense is (Laser On: {0} ,Laser Off: {1})" />
+  <Event id="1057" numberOfArguments="0" format="EFUSE: Invalid device id" />
+  <Event id="1058" numberOfArguments="0" format="EFUSE: Magic serial number in eeprom" />
+  <Event id="1061" numberOfArguments="2" format="Cbuf statistics: Max = {0}, Avg = {1}" />
+  <Event id="1062" numberOfArguments="0" format="RF: already running" />
+  <Event id="1063" numberOfArguments="2" format="Rast statistics (Values are divided by 10): Max = {0}, Avg = {1}" />
+  <Event id="1064" numberOfArguments="3" format="HwAssert source id {0}[EnumValue=ETHwAssertCmp], component source id {1}[EnumValue=ETHwAssertMcSource], source value 0x{2:x}" />
+  <Event id="1065" numberOfArguments="3" format="HwAssert source id {0}[EnumValue=ETHwAssertCmp], component source id {1}[EnumValue=ETHwAssertMaSource], source value 0x{2:x}" />
+  <Event id="1066" numberOfArguments="0" format="UVC app is using BU descriptor (depth + WinUsb)" />
+  <Event id="1067" numberOfArguments="0" format="UVC app is using following descriptor (depth + WinUsb)" />
+  <Event id="1068" numberOfArguments="0" format="UVC app is using following descriptor (depth + WinUsb + RGB)" />
+  <Event id="1069" numberOfArguments="0" format="UVC app is using following advanced mode descriptor (depth + WinUsb)" />
+  <Event id="1070" numberOfArguments="2" format="Script execution of TableId 0x{0:x} finished with error code {1}[EnumValue=ErrorTypes]" />
+  <Event id="1071" numberOfArguments="0" format="UVC app is using BU advanced mode descriptor (depth + WinUsb)" />
+  <Event id="1073" numberOfArguments="1" format="Depth - Exposure time absolute control set to {0}" />
+  <Event id="1074" numberOfArguments="1" format="Operation count (in minutes) = {0}" />
+  <Event id="1075" numberOfArguments="1" format="Interrupt {0} is enabled" />
+  <Event id="1076" numberOfArguments="1" format="Interrupt {0} is disabled" />
+  <Event id="1077" numberOfArguments="1" format="Interrupt mutex error = {0:u}" />
+  <Event id="1078" numberOfArguments="0" format="Apical ISP initialization failed" />
+  <Event id="1079" numberOfArguments="0" format="No MC protocol found" />
+  <Event id="1080" numberOfArguments="0" format="Meta data NSE memory allocation error" />
+  <Event id="1081" numberOfArguments="1" format="Version - MC BASED FW - SKU: {0}" />
+  <Event id="1082" numberOfArguments="1" format="Version - MA BASED FW - SKU: {0}" />
+  <Event id="1083" numberOfArguments="3" format="FLYBACK: VBR-VR diff too small (VBR1Offset = {0}, VBR2Offset = {1}, VBROffsetThres = {2})" />
+  <Event id="1084" numberOfArguments="3" format="FLYBACK: debug info (idx = {0}, val = 0x{1:x}, val = {2:f})" />
+  <Event id="1085" numberOfArguments="2" format="FLYBACK: value out of range pwmValue = 0x{0:x}, maxPwmValue = 0x{1:x}" />
+  <Event id="1086" numberOfArguments="0" format="FLYBACK: VBR limits out of range" />
+  <Event id="1087" numberOfArguments="3" format="FLYBACK: table (offset = 0x{0:x}, none = 0x{1:x}, val = 0x{2:x})" />
+  <Event id="1088" numberOfArguments="3" format="FLYBACK: register (step {0}, value = 0x{1:x}, address = 0x{2:x})" />
+  <Event id="1089" numberOfArguments="3" format="FLYBACK: state  = ({0}, {1}, {2}[EnumValue=ETApdFlybackState])" />
+  <Event id="1090" numberOfArguments="2" format="FLYBACK: Vsense diff exceeded max allowed (maxDiff = {0}, currDif = {1})" />
+  <Event id="1091" numberOfArguments="1" format="TOC deprecated version 0x{0:x}" />
+  <Event id="1092" numberOfArguments="0" format="Flash logger initialization failed" />
+  <Event id="1093" numberOfArguments="0" format="Payload0 initialization done" />
+  <Event id="1094" numberOfArguments="0" format="Payload0 started" />
+  <Event id="1095" numberOfArguments="1" format="Failed to read moduleInfo table from eeprom. error = {0}" />
+  <Event id="1096" numberOfArguments="1" format="HWM Mclog wrong phaseId. {0} big than max phaseID" />
+  <Event id="1097" numberOfArguments="2" format="HWM Mclog phaseID inconsistent. current: {0} expected: {1})" />
+  <Event id="1098" numberOfArguments="3" format="ThermalMng: Temperature is critical ({0}) (0-LDD, 1-MC, 2-MA, 3-APD) Limit is: {1}  Actual is: {2:f}" />
+  <Event id="1099" numberOfArguments="3" format="ThermalMng: CT KILL Thresholds Changed ({0}) (0-LDD, 1-MC, 2-MA, 3-APD) Old is: {1}  New is: {2}" />
+  <Event id="1100" numberOfArguments="1" format="Payload0 - Eye safety registers are locked {0} (MA=0, MC=1, LD=2)" />
+  <Event id="1101" numberOfArguments="1" format="Payload0 - snubber failed {0} times" />
+  <Event id="1102" numberOfArguments="0" format="Invalid combination - MA based streaming with locked registers" />
+  <Event id="1103" numberOfArguments="0" format="Cannot change RegsLockBypass during streaming" />
+  <Event id="1104" numberOfArguments="0" format="RegsLockBypass was changed in EEPROM, reset required" />
+  <Event id="1105" numberOfArguments="0" format="GetNotchFilterCoeffs error: not all coefficients are smaller than 2" />
+  <Event id="1106" numberOfArguments="3" format="ThermalMng: {0}[EnumValue=ETThermistorSource]({1}) offset is: {2:f}" />
+  <Event id="1107" numberOfArguments="0" format="PL0: stuck at tests skipped" />
+  <Event id="1108" numberOfArguments="0" format="Changing maBasedStreaming at this stage is not allowed" />
+  <Event id="1109" numberOfArguments="0" format="Meta data didn't finish to copy to NSE memory and Usb Sof has arrived" />
+  <Event id="1111" numberOfArguments="1" format="Failed to set regsLockBypass. error = {0}" />
+  <Event id="1112" numberOfArguments="0" format="UVC app is using following descriptor (depth + WinUsb + RGB + IMU)" />
+  <Event id="1113" numberOfArguments="0" format="Payload0: MC-A1 configured" />
+  <Event id="1114" numberOfArguments="1" format="Preset Table (id = {0} ) in Eprom is not burned" />
+  <Event id="1115" numberOfArguments="3" format="Preset Table (id = {0} )  Major Version {1} is not the expected {2}" />
+  <Event id="1116" numberOfArguments="3" format="Preset Table (id = {0} )  Size {1} is not the expected {2}" />
+  <Event id="1117" numberOfArguments="1" format="Preset Table (id = {0} )  OK" />
+  <Event id="1118" numberOfArguments="3" format="Preset entry {0}  16bvalue {1}   0x{2:x}" />
+  <Event id="1119" numberOfArguments="3" format="Flow RGB - event 0x{0:x} arrived, time elapsed {1}[ms], time elapsed {2}[us]" />
+  <Event id="1120" numberOfArguments="2" format="RGB start delay value is wrong minimum value:{0}, maximum value {1}" />
+  <Event id="1121" numberOfArguments="2" format="RGB stop delay value is wrong minimum value:{0}, maximum value {1}" />
+  <Event id="1122" numberOfArguments="3" format="memcpy_s failed {0} {1} with error code {2}[EnumValue=ErrorTypes]" />
+  <Event id="1123" numberOfArguments="3" format="ISP write error - command: {0}[EnumValue=ETApicalIspCmd], value: 0x{1:x}, {2}[EnumValue=ErrorTypes]" />
+  <Event id="1124" numberOfArguments="3" format="ISP read error - command: {0}[EnumValue=ETApicalIspCmd], value: 0x{1:x}, {2}[EnumValue=ErrorTypes]" />
+  <Event id="1125" numberOfArguments="3" format="HUMIDITY sensor read error: {0}[EnumValue=ErrorTypes], {1:x}[uint16_t=i2cDevAddr], {2:x}[uint32_t=offset]" />
+  <Event id="1126" numberOfArguments="3" format="DIGG SOF {0}, JFIL SOF {1}, PTS error counter {2}" />
+  <Event id="1127" numberOfArguments="3" format="ThermalMng: Low temperature condition  changed for LD: (LaserOn: {0}), (Average temp is: {1}), (Low temperature threshold is: {2}) (streaming continues anyway with or without laser)" />
+  <Event id="1128" numberOfArguments="3" format="ThermalMng: Low temperature thresholds Changed for LD({0}) Old is: {1}  New is: {2}" />
+  <Event id="1129" numberOfArguments="2" format="Wrong major version: {0} for table: {1}" />
+  <Event id="1136" numberOfArguments="3" format="Intrinsic: reliable({0})  width({1})  height({2})" />
+  <Event id="1137" numberOfArguments="1" format="SECC received command flow: {0}" />
+  <Event id="1138" numberOfArguments="1" format="Invalid depth format {0}" />
+  <Event id="1139" numberOfArguments="0" format="Calibration: Intrinsic Load Failed" />
+  <Event id="1140" numberOfArguments="3" format="STREAM_FAILURE - ERROR - Mailbox Timeout -  msg({0})  status({1})  actual_events(0x{2:x})" />
+  <Event id="1141" numberOfArguments="1" format="Tia Gain Set ({0})" />
+  <Event id="1142" numberOfArguments="1" format="Laser Gain Set ({0})" />
+  <Event id="1143" numberOfArguments="3" format="OS: MessageQ {0}[EnumValue=ETQSizes] allocation, current Q({1}). Maximum allowed ({2})" />
+  <Event id="1144" numberOfArguments="3" format="SCHEDULING: Module ({0}) param1 ({1}). param2 ({2}) (Modules(0=HWAssert, 1=ThermalMng, 2=Flyback, 3=AlgoThermal, 4=Metadata))" />
+  <Event id="1145" numberOfArguments="3" format="FLYBACK: Low temperature threshold (0-start, 1-stop): {0}, {1}[c], 0x{2:x}[tSense digital format]" />
+  <Event id="1146" numberOfArguments="1" format="Invalid general code value for algoGen ({0})" />
+  <Event id="1147" numberOfArguments="1" format="STREAM_FAILURE - ThermalMng: Critical Temperature then Stop Stream  {0} ( 1-&gt; Low - 2-&gt; High )" />
+  <Event id="1148" numberOfArguments="1" format="Write to locked register ({0}) (MA=0,  MC=1)" />
+  <Event id="1149" numberOfArguments="1" format="SYS DELAY OVERX Init with nof entries = {0}" />
+  <Event id="1150" numberOfArguments="2" format="Mems Close Graceful stop: is timeout {0}, is cross zero {1}" />
+  <Event id="1151" numberOfArguments="0" format="FW recovered from MC WDT Reset" />
+  <Event id="1152" numberOfArguments="3" format="Fall Detect {0}{1}   Sample = {2}" />
+  <Event id="1153" numberOfArguments="3" format="Fall Detect Falling -&gt; FallCnt    = {0}  Sample*1000 = {1}  timestamp(us) = {2}" />
+  <Event id="1154" numberOfArguments="3" format="Fall Detect Suspect -&gt; SuspectCnt = {0}  Sample*1000 = {1}  timestamp(us) = {2}" />
+  <Event id="1155" numberOfArguments="3" format="Fall Detect New Sample is not valid (1==&gt;timestamp is 0, 2==&gt; timestamp=lastTimestamp, 3==&gt;saturated sample) {0}, {1}, TimeStamp = {2}" />
+  <Event id="1156" numberOfArguments="3" format="STREAM_FAILURE - Fall Detect Falling Detected  -&gt;   Cnt1 = {0}  &gt; CntThr1 = {1}  then STOP the Stream  ( Sample = {2} )" />
+  <Event id="1157" numberOfArguments="0" format="STREAM_FAILURE - Fall Detect Falling Detected during Play Stream Flow then ABORT the Play Stream Flow" />
+  <Event id="1158" numberOfArguments="3" format="Fall Detect Start Fl{0}w -&gt;  CntThr1 = {1}  CntThr2 = {2}" />
+  <Event id="1159" numberOfArguments="3" format="Fall Detect Start Fl{0}w -&gt;  AmpThr1 = {1}  AmpThr2 = {2}" />
+  <Event id="1160" numberOfArguments="0" format="Fall Detect Start -&gt; enable IMU sensor and then wait for IMU sample" />
+  <Event id="1161" numberOfArguments="3" format="Voltage: MA = {0}, MC = {1} voltage = {2:f}" />
+  <Event id="1162" numberOfArguments="0" format="MC CRC error occurred: Could not load mc code crc value from header" />
+  <Event id="1163" numberOfArguments="0" format="MC CRC error occurred: Integrity error timeout" />
+  <Event id="1164" numberOfArguments="2" format="MC CRC error occurred: Rcmd = {0}[EnumValue=ErrorTypes], MC Code = {1}[EnumValue=ErrorTypes]" />
+  <Event id="1165" numberOfArguments="2" format="Error in: {0}[EnumValue=CamUnitSelection], Int status:{1}" />
+  <Event id="1166" numberOfArguments="2" format="STREAM_FAILURE - Close object detected - ABORT Stream Flow. Max allowed Threshold:{0}, Detected Threshold:{1}" />
+  <Event id="1167" numberOfArguments="3" format="Close object detected for {0} samples - Hold stream. Laser On sample: {1}, Laser Off sample: {2}" />
+  <Event id="1168" numberOfArguments="2" format="Close object not detected for 1 samples - Resume stream. Laser On sample: {0}, Laser Off sample: {1}" />
+  <Event id="1169" numberOfArguments="3" format="Close object detected (Laser On Avg: {0},Laser Off Avg: {1}, Num of continues frames {2})" />
+  <Event id="1170" numberOfArguments="0" format="Flash Unlock succeeded, flash is unlocked" />
+  <Event id="1171" numberOfArguments="0" format="Flash Unlock failed, need to set hardware strap" />
+  <Event id="1172" numberOfArguments="1" format="Wrong value written to MC. Addr = {0:x}" />
+  <Event id="1173" numberOfArguments="2" format="Open mems command open started = {0}, ended = {1}" />
+  <Event id="1174" numberOfArguments="3" format="Open mems debug info Rcmd * 1000 = {0:u}, RmsDet * 1000 = {1:u}, (Rcmd - RmsDet) * 1000 = {2}" />
+  <Event id="1175" numberOfArguments="1" format="STREAM_FAILURE - DSM not created succsefuly - stuck at {0}" />
+  <Event id="1176" numberOfArguments="3" format="Version - P8   - {0}.{1}.{2}" />
+  <Event id="1177" numberOfArguments="3" format="Version - {0}[EnumValue=PayloadIds] - {1}.{2}" />
+  <Event id="1178" numberOfArguments="3" format="Version - Lock Status  - ASIC({0})  FLASH({1})  EEPROM({2})" />
+  <Event id="1179" numberOfArguments="3" format="SAFETY_CHECKER_LOOP: {0}, {1}, state = {2}[EnumValue=ETSafetyCheckerLoopState]" />
+  <Event id="1180" numberOfArguments="3" format="STREAM_FAILURE - SAFETY_CHECKER_ABORT: sticky = {0}, {1}, checker = {2}[EnumValue=ETSafetyChecker]" />
+  <Event id="1181" numberOfArguments="3" format="SAFETY_CHECKER_INFO: id = {0}, p1 = 0x{1:x}, p2 = {2:f}" />
+  <Event id="1182" numberOfArguments="3" format="PROFILER({0})  Cnt({1})/Sec   Avg({2:f})uSec" />
+  <Event id="1183" numberOfArguments="3" format="PROFILER({0})  MaxLast({1})uSec   Max({2})uSec" />
+  <Event id="1184" numberOfArguments="2" format="ERROR: Black threshold {0} is bigger than Num of samples: {1}" />
+  <Event id="1185" numberOfArguments="3" format="Laser Driver Gain updated, Temperature*100: {0}, Ratio*100: {1}, LD Ref value 0x{2:x}" />
+  <Event id="1186" numberOfArguments="3" format="Laser Driver calculated dummy {0}{1} float value: {2}" />
+  <Event id="1187" numberOfArguments="3" format="PZR shift: Enable status, PZR1: {0}[EnumValue=ET_BOOL], PZR2: {1}[EnumValue=ET_BOOL], PZR3: {2}[EnumValue=ET_BOOL]" />
+  <Event id="1188" numberOfArguments="0" format="PZR shift: All PZRs enable status are disabled nothing to do" />
+  <Event id="1189" numberOfArguments="1" format="PZR shift: Time overflow has occurred {0} time(s)" />
+  <Event id="1190" numberOfArguments="2" format="PZR shift: PZR {0}, all polynomial values are zero, pzr shift enable set to {1}[EnumValue=ET_BOOL]" />
+  <Event id="1191" numberOfArguments="3" format="PZR shift: PZR {0}, limits configured, Low: {1}, High: {2}" />
+  <Event id="1192" numberOfArguments="3" format="PZR shift: PZR {0}, limits used, Low: {1}, High: {2}" />
+  <Event id="1193" numberOfArguments="3" format="PZR shift: PZR {0}, value used integer: {1}, float value: {2:f}" />
+  <Event id="1194" numberOfArguments="3" format="PZR shift: PZR Offset Fix, PZR1 mean resistance: {0:u} Ohm, Offset fix applied: {1}, vSense {2:f} V" />
+  <Event id="1195" numberOfArguments="3" format="PZR shift: PZR Offset Fix, PZR2 mean resistance: {0:u} Ohm, Offset fix applied: {1}, vSense {2:f} V" />
+  <Event id="1196" numberOfArguments="3" format="PZR shift: PZR Offset Fix, PZR3 mean resistance: {0:u} Ohm, Offset fix applied: {1}, vSense {2:f} V" />
+  <Event id="1197" numberOfArguments="3" format="PZR shift: PZR {0}, vSense{1}ffset after fix {2:f} V" />
+  <Event id="1198" numberOfArguments="3" format="Laser Max mod ref reduced from {0:x} to {1:x}, reduce factor {2}[EnumValue=ETFlashOtpLaserPowerReduceFactor]" />
+  <Event id="1199" numberOfArguments="0" format="Laser Max mod ref failed to be updated I2C failed" />
+  <Event id="1200" numberOfArguments="0" format="Laser Max mod ref is disabled in eeprom" />
+  <Event id="1201" numberOfArguments="1" format="Special frame already running. Type: {0}" />
+  <Event id="1202" numberOfArguments="0" format="Special frame allowed only while under Depth is under streaming" />
+  <Event id="1203" numberOfArguments="0" format="Laser Reduce power state was changed in EEPROM, hard reset required" />
+  <Event id="1204" numberOfArguments="1" format="Fall Detect In PAUSE for {0} ms" />
+  <Event id="1205" numberOfArguments="0" format="Fall Detect End of  PAUSE" />
+  <Event id="1206" numberOfArguments="1" format="Mems Calibration mod {0}[EnumValue=ETMemsCalibrationAxis]" />
+  <Event id="1207" numberOfArguments="3" format="Mems Calibration (double)param{0}, {1} (0 Low, 1 High), value: 0x{2:x}" />
+  <Event id="1208" numberOfArguments="1" format="Mems FOV: enable status {0}[EnumValue=ET_BOOL]" />
+  <Event id="1209" numberOfArguments="3" format="Mems FOV: pzr{0} limit:{1} (MAX=0, MIN=1), reduction is: {2:f}" />
+  <Event id="1210" numberOfArguments="3" format="Mems FOV: pzr{0} requested rati{1} : {2:f}" />
+  <Event id="1211" numberOfArguments="3" format="Mems FOV: pzr{0} current rati{1} used: {2:f}" />
+  <Event id="1212" numberOfArguments="3" format="Algo Thermal Loop -Auto Calib Param {0}{1} = {2:f}" />
+  <Event id="1213" numberOfArguments="3" format="Stream started after delay of {0} frames. Algo Thermal took {1}[ms],  APD Flyback took {2}[ms]" />
+  <Event id="1214" numberOfArguments="3" format="Algo thermal loop mode changed from {0}[EnumValue=ETAlgoThermalMode] mode to {1}[EnumValue=ETAlgoThermalMode] mode. Time elapsed: {2}[ms]" />
+  <Event id="1215" numberOfArguments="3" format="Laser Driver Enable/Disbale Request.  source = {0} enable = {1} flags = {2}" />
+  <Event id="1216" numberOfArguments="3" format="Laser Driver Enable/Disable Done.  prevFlag = {0} currentFlags = {1} shutDown = {2}" />
+  <Event id="1217" numberOfArguments="3" format="Laser Driver Start.  prevFlag = {0} currentFlags = {1} shutDown = {2}" />
+  <Event id="1218" numberOfArguments="2" format="HW Ext sync - Stream continue after delay of {0}[ms] ({1} frames) after trigger received" />
+  <Event id="1219" numberOfArguments="0" format="HW Ext sync - Stream paused" />
+  <Event id="1220" numberOfArguments="0" format="HwSync and CloseObj feature can't work together!" />
+  <Event id="1221" numberOfArguments="1" format="Invalid debug command received - {0}" />
+  <Event id="1222" numberOfArguments="3" format="Algo Thermal Error (Corrupted Image) Event {0}   {1}  {2}" />
+  <Event id="1223" numberOfArguments="3" format="PZR shift Fix: dumy{0}{1} Rcmd Updated value with {2:f}" />
+  <Event id="1224" numberOfArguments="3" format="PZR shift Fix: dumy{0}{1} Rcmd Restored value with {2:f}" />
+  <Event id="1225" numberOfArguments="2" format="Features configuration:Feature {0}[EnumValue=ETFeatures] is {1}[EnumValue=ETSwitch]" />
+  <Event id="1536" numberOfArguments="0" format="Command Base" />
+  <Event id="1537" numberOfArguments="3" format="MRD (Memory Read), Return value 0x{0:x} start address 0x{1:x} end address 0x{2:x}" />
+  <Event id="1538" numberOfArguments="3" format="MWD (Memory Write), Return value 0x{0:x} start address 0x{1:x} end address 0x{2:x}" />
+  <Event id="1539" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="1540" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="1541" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="1542" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="1543" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="1544" numberOfArguments="3" format="I2C Return value {0:x} device {1:x} offset {2:x}" />
+  <Event id="1545" numberOfArguments="3" format="FRB ( Flash Read Bytes ) Return value {0} offset {1:x} size {2:x}" />
+  <Event id="1546" numberOfArguments="3" format="FWB ( Flash Write Bytes ) Return value {0} offset {1:x} size {2:x}" />
+  <Event id="1547" numberOfArguments="3" format="FES ( Flash Erase Sector ) Return value {0} sector index {1:x} num sectors {2:x}" />
+  <Event id="1548" numberOfArguments="2" format="FEF ( Flash Erase Full Chip ) Return value {0} security code {1:x}" />
+  <Event id="1549" numberOfArguments="1" format="FSRU ( Flash Status Reg Unlock ) Return value {0}" />
+  <Event id="1550" numberOfArguments="2" format="FPLOCK ( Flash Lock ) Return value {0} Password {1:x}" />
+  <Event id="1551" numberOfArguments="2" format="GLD (Get Logger Data) Return value {0} num bytes {1:x}" />
+  <Event id="1552" numberOfArguments="1" format="GVD Return value {0:x}" />
+  <Event id="1553" numberOfArguments="2" format="UPD (Shadow Update) Return value {0:x}, OTF MASK 0x{1:x}" />
+  <Event id="1554" numberOfArguments="2" format="UPDI (Shadow Update Immediate) Return value {0:x}, OTF MASK 0x{1:x}" />
+  <Event id="1555" numberOfArguments="2" format="GETCAL (Get Calibration Table) Return value {0:x}, phase id {1}" />
+  <Event id="1556" numberOfArguments="3" format="SETCAL (Set Calibration Table) Return value {0:x}, region type {1}, phase id {2}" />
+  <Event id="1557" numberOfArguments="0" format="VOLTAGE_GET Read voltage (from MA, MC, APD)" />
+  <Event id="1559" numberOfArguments="3" format="ERB (EEPROM Read Byte) Return value {0:x}, start 0x{1:x}, size 0x{2:x}" />
+  <Event id="1560" numberOfArguments="3" format="EWB (EEPROM Write Byte) Return value {0:x}, start 0x{1:x}, size 0x{2:x}" />
+  <Event id="1561" numberOfArguments="2" format="HW_SYNC_EX_TRIGGER (Trigger GPIO10 out, 0 - stop, 1 - start) Return value {0}, Enable = {1}" />
+  <Event id="1562" numberOfArguments="2" format="CLOSE_OBJ_DETECT_SET (Set Enable\Disable close object detect feature, 0 - Disable, 1 - Enable) Return value {0},  mode:{1}" />
+  <Event id="1563" numberOfArguments="2" format="CLOSE_OBJ_DETECT_GET (Get Enable\Disable close object detect feature, 0 - Disable, 1 - Enable) Return value {0}, mode :{1}" />
+  <Event id="1564" numberOfArguments="5" format="CLOSE_OBJ_DETECT_CONFIGURE (Configure close object detect) Return value {0:x}, Sample Rate:{1}, Continuous close frames detected to abort stream {2}, ISense threshold:{3}, Black frames threshold:{4}" />
+  <Event id="1565" numberOfArguments="2" format="UAME (USB Advanced Mode Enable), Return value {0:x}, enable {1}" />
+  <Event id="1566" numberOfArguments="1" format="DFU (Go to dfu) Return value {0:x}" />
+  <Event id="1567" numberOfArguments="1" format="UAMG (USB Advanced Mode Get), Return value {0:x}" />
+  <Event id="1568" numberOfArguments="1" format="RST (HW Reset) Return value {0:x}" />
+  <Event id="1569" numberOfArguments="1" format="GETFWRECCOEFF Load FW rectification coefficients {0:x}" />
+  <Event id="1570" numberOfArguments="0" format="Set field of view reduction ratio" />
+  <Event id="1571" numberOfArguments="0" format="Get current field of view reduction ratio" />
+  <Event id="1572" numberOfArguments="5" format="ALGO_THERMLOOP_CONFIG_MODE, Write, Bytes, 1000, &quot;Configure Algo thermal loop fast parameters. Return value {0}, Mode {1}[EnumValue=ETAlgoThermalMode] Interval between samples[ms] = {2}, Apply rate = {3} - after how many samples apply. Fast mode duration[ms] = {4} &quot;" />
+  <Event id="1573" numberOfArguments="2" format="ALGO_THERMLOOP_STATUTS_GET,      Read,  Bytes, 1000, &quot;Get Algo Thermal convergence status. Return value {0}, Mode = {1}. 0 - Not converged, 1 - Converged&quot;" />
+  <Event id="1574" numberOfArguments="1" format="Set disparity shift value, Return value {0}" />
+  <Event id="1575" numberOfArguments="1" format="Set minimal &amp; maximal Z value, Return value {0}" />
+  <Event id="1576" numberOfArguments="2" format="OBR (OVT ByPass read) Return value {0:x} register {1:x}" />
+  <Event id="1577" numberOfArguments="3" format="OBW (OVT ByPass Write) Return value {0:x} register {1:x} value {2:x}" />
+  <Event id="1578" numberOfArguments="1" format="GTEMP Read stereo module temperature, Return value {0:x}" />
+  <Event id="1579" numberOfArguments="3" format="AMCSET (Advanced Mode Cmd Set), Return value {0:x}, opcode EnumValue=EtAdvancedModeRegGroup], value {2}" />
+  <Event id="1580" numberOfArguments="3" format="AMCGET (Advanced Mode Cmd Get), Return value {0:x}, opcode {1}, data Type {2}" />
+  <Event id="1581" numberOfArguments="1" format="AC_SET_PARAM (Auto Calib Set Param), Return value {0:x}" />
+  <Event id="1582" numberOfArguments="0" format="DELETE_TABLE  Write, &quot;DELETE_TABLE&quot;" />
+  <Event id="1583" numberOfArguments="0" format="MEMS_SHIFT_GET_DATA, Read, Bytes, 1000, &quot;Get Mems DSM and Rcmd data calculation&quot;" />
+  <Event id="1584" numberOfArguments="0" format="MEMS_SHIFT_FIX_ENABLE, Write, Bytes, 1000, &quot;Set DSM and Rcmd Enable&quot;" />
+  <Event id="1585" numberOfArguments="0" format="MEMS_SHIFT_RCMD_GET_STATUS, Read, Bytes, 1000, &quot;Get Mems Rcmd fix Data&quot;" />
+  <Event id="1586" numberOfArguments="0" format="MEMS_SHIFT_RCMD_SET_LIMITS, Write, Bytes, 1000, &quot;Set Mems Rcmd fix limits&quot;" />
+  <Event id="1587" numberOfArguments="0" format="FEATURES_PERMANENT_CONFIGURATION_SET, WRITE, Bytes, 1000, &quot;Set features configuration on power up&quot;" />
+  <Event id="1588" numberOfArguments="0" format="GETAEDRK, Read, Words, 1000, &quot;Get AE dark threshold&quot;" />
+  <Event id="1589" numberOfArguments="0" format="SETAEDRK, Write, Words, 1000, &quot;Set AE dark threshold&quot;" />
+  <Event id="1590" numberOfArguments="0" format="GETAEDRK, Read, Words, 1000, &quot;Get AE bright threshold&quot;" />
+  <Event id="1591" numberOfArguments="0" format="SETAEDRK, Write, Words, 1000, &quot;Set AE bright threshold&quot;" />
+  <Event id="1592" numberOfArguments="0" format="SETCOLCORR, Write, Words, 1, &quot;Set Color Correction Matrix&quot;, &quot;0 - Matrix0, 1 - Matrix1, 2 - Matrix2&quot;" />
+  <Event id="1593" numberOfArguments="0" format="RGB_INTRINSICS_UNDIST_GET,  Read,  Bytes,    1000, &quot;Get Rgb Intrinsics undist Info&quot;" />
+  <Event id="1594" numberOfArguments="0" format="RGB_EXTRINSICS_UNDIST_GET,  Read,  Bytes,    1000, &quot;Get Rgb Extrinsics undist Info&quot;" />
+  <Event id="1595" numberOfArguments="1" format="PFD Disable power features  {0}" />
+  <Event id="1596" numberOfArguments="0" format="PTENABLEMODE, Write, Bytes, 1000, &quot;Set projector tester enable mode&quot; &quot;0 - Dis, 1 - En, Wait for values, 2 - En, Load&amp;Test EEPROM&quot;" />
+  <Event id="1597" numberOfArguments="0" format="PTEYESAFETYVAL, Write,  1000,  &quot;Set Projector tester eye safety values&quot; &quot;countMax&quot; &quot;maxRatio&quot; &quot;invertOutput&quot;" />
+  <Event id="1598" numberOfArguments="0" format="PTWINDOWCNT, Write,  1000,  &quot;Set Projector tester windows count value&quot; &quot;windowCount&quot;" />
+  <Event id="1599" numberOfArguments="0" format="PTPWMSTART , Write,  1000,  &quot;Set Projector tester windows count value&quot; &quot;0 - Start 1 - End&quot;" />
+  <Event id="1600" numberOfArguments="0" format="PTENABLEDISABLECNT, , Write,  1000,  &quot;Set laser duty cycle&quot; &quot;enable count&quot; &quot;disable count&quot;" />
+  <Event id="1603" numberOfArguments="0" format="READ_TABLE, Read,  1000, &quot;Read calibration table&quot;" />
+  <Event id="1604" numberOfArguments="0" format="WRITE_TABLE, Write, 1000, &quot;Write calibration table&quot;" />
+  <Event id="1605" numberOfArguments="0" format="EXEC_TABLE, Write,  1000, &quot;Execute calibration table&quot;" />
+  <Event id="1606" numberOfArguments="0" format="THERMLOOPSTART, Write,  1000, &quot;Start Thermal loop execution&quot;" />
+  <Event id="1607" numberOfArguments="0" format="THERMLOOPSTOP, Write,  1000, &quot;Stop Thermal loop execution&quot;" />
+  <Event id="1608" numberOfArguments="0" format="THERMLOOPSET, Write,  1000, &quot;Stop Thermal loop execution&quot;" />
+  <Event id="1609" numberOfArguments="0" format="THERMLOOPGET,  Read,  1000, &quot;Get Thermal loop command parameters&quot;" />
+  <Event id="1610" numberOfArguments="0" format="STACK_STATUS_GET,  Read,  1000, &quot;Get stack status for all threads&quot;" />
+  <Event id="1615" numberOfArguments="0" format="IMU_CALIBRATION_GET,  Read,  Bytes,    1000, &quot;Get IMU Calibration Info&quot;" />
+  <Event id="1616" numberOfArguments="0" format="THERMLOOPINDXSET,  Read,  1000, &quot;Set Thermal loop parameters according to index/value&quot;" />
+  <Event id="1617" numberOfArguments="0" format="DIRTYBITBYPASS,  Read,  1000, &quot;Bypass eye safety dirty bit indication&quot;" />
+  <Event id="1618" numberOfArguments="0" format="DIRTYBITCLEAR,  Read,  1000, &quot;Clear eye safety dirty bit indication (tester only)&quot;" />
+  <Event id="1619" numberOfArguments="0" format="DIRTYBITGET,  Read,   1000, &quot;Get eye safety dirty bit indication 2B_FLASH/ 2B_EEPROM&quot;" />
+  <Event id="1620" numberOfArguments="0" format="HWASSERTSTIMER,  Write,  1000, &quot;Set a new time interval for HW ASSERTS monitor&quot;" />
+  <Event id="1621" numberOfArguments="0" format="PVTTIMERSET,  Write,  1000, &quot;Set a new time interval for PVT monitor&quot;" />
+  <Event id="1622" numberOfArguments="0" format="GTI,  Read,  1000, &quot;Get Table Info (version and size)&quot;" />
+  <Event id="1623" numberOfArguments="0" format="GET_FW_VERSIONS,  Read,  1000, &quot;Get Fw payloads versions&quot;" />
+  <Event id="1624" numberOfArguments="0" format="THERMLOOPINDXGET,  Read,  1000, &quot;Get Thermal loop parameters according to index&quot;" />
+  <Event id="1625" numberOfArguments="2" format="ALGO_THERMLOOP_EN,  Write,  1000, &quot;Enable Algo Thermal Loop. Return value {0}, Mode = {1}" />
+  <Event id="1626" numberOfArguments="0" format="DPT_INTRINSICS_GET,  Write,  1000, &quot;Get Depth Intrinsics Coefs&quot;" />
+  <Event id="1627" numberOfArguments="0" format="APD_ISENSEREAD_SET,  Write,  1000, &quot;Enable\Disable APD Isense read&quot;" />
+  <Event id="1629" numberOfArguments="0" format="OPER_COUNT_GET,  Read,  Bytes,    1000, &quot;Get eye safety operation counter (in minutes)&quot;" />
+  <Event id="1630" numberOfArguments="4" format="TEST_MODE,   Write,  Bytes,    1000, &quot;Set debug command. Return value {0}, Command type:{1}[EnumValue=ETDebugCommandType], Param 1: {2}, Param 2:{3}&quot;" />
+  <Event id="1631" numberOfArguments="0" format="CBUF_STATS_ENABLE,  Write,  Bytes,    1000, &quot;Enable Cbuf statistics collection&quot;, &quot;0 - Disable, 1 - Enable&quot;" />
+  <Event id="1632" numberOfArguments="0" format="RF_SET,  Write,  Bytes, 1000, &quot;Start range finder statistics collection&quot;" />
+  <Event id="1633" numberOfArguments="0" format="RF_GET,  Read,  Bytes, 1000, &quot;Read range finder statistics in chunks&quot;" />
+  <Event id="1634" numberOfArguments="0" format="RAST_STATS_ENABLE,  Write,  Bytes,    1000, &quot;Enable Rast statistics collection&quot;, &quot;0 - Disable, 1 - Enable&quot;" />
+  <Event id="1635" numberOfArguments="0" format="FG_CFG_BYPASS,  Write,  Bytes,    1000, &quot;Frame Grabber bypass FW config - 1, use FW config 0&quot;" />
+  <Event id="1637" numberOfArguments="0" format="U0_IDLE_ENABLE,  Write,  Bytes,    1000, &quot;U0 idle low power enable&quot;" />
+  <Event id="1638" numberOfArguments="0" format="AFE_SEQ_ENABLE,  Write, Bytes,      1000, &quot;Control AFE sequencer configuration&quot;, &quot;0 - Disable, 1 - Enable&quot;" />
+  <Event id="1639" numberOfArguments="0" format="ISP_READ_CMD , Write, Bytes, 1000, &quot;REGISTERBATCH&quot;" />
+  <Event id="1640" numberOfArguments="0" format="ISP_WRITE_CMD, Write, Bytes, 1000, &quot;REGISTERBATCH&quot;" />
+  <Event id="1641" numberOfArguments="0" format="ES_STATUS_GET,  Read,  Bytes,    1000, &quot;Read Eye Safety Status&quot;" />
+  <Event id="1642" numberOfArguments="0" format="ThermalMng: TEMPERATURE_GET,  Read,  Bytes,    1000, &quot;Read temperatures (from LDD, MC and MA)&quot;" />
+  <Event id="1643" numberOfArguments="0" format="PZR_POWER_GET,  Read,  Bytes,    1000, &quot;Read PZR VBias and IBias&quot;" />
+  <Event id="1644" numberOfArguments="0" format="IMU_SAMPLE_GET Read,  Bytes,    1000, &quot;Read Last IMU sample (Accel and Gyro)&quot;" />
+  <Event id="1645" numberOfArguments="0" format="RGB_PATTERN_ENABLE Read,  Bytes,    1000, &quot;Enable\Disable RGB pattern generator&quot;" />
+  <Event id="1646" numberOfArguments="0" format="TIA_ENABLE Read,  Bytes,    1000, &quot;Enable\Disable Tia&quot;" />
+  <Event id="1647" numberOfArguments="0" format="TIA_RSSI_GET,  Read,  Bytes,    1000, &quot;Read Tia Rssi&quot;" />
+  <Event id="1648" numberOfArguments="0" format="APD_ISENSE_GET,  Read,  Bytes,  1000, &quot;Read APD I-Sense&quot;" />
+  <Event id="1649" numberOfArguments="0" format="THERMLOOPSTATUSGET,  Read, Bytes, 1000, &quot;Get Thermal loop state (0-NotInitialized, 1-Initialized, 2-Started,3-Running,4-Stopped)&quot;" />
+  <Event id="1650" numberOfArguments="0" format="MA_BASED_STREAMING_GET,  Read, Bytes, 1000, &quot;MA_BASED_STREAMING_GET&quot;" />
+  <Event id="1651" numberOfArguments="0" format="RGB_START_DELAY_SET,  Write,  Bytes,    1000, &quot;Define RGB start delay&quot;" />
+  <Event id="1652" numberOfArguments="0" format="RGB_STOP_DELAY_SET,  Write,  Bytes,    1000, &quot;Define RGB start delay&quot;" />
+  <Event id="1653" numberOfArguments="0" format="APD_FLYBACK_BYPASS,  Write, Bytes, 1000, &quot;Apd flyback loop bypass&quot;" />
+  <Event id="1654" numberOfArguments="0" format="APD_FLYBACK_VERBOSE,  Write, Bytes, 1000, &quot;Apd flyback verbose&quot;" />
+  <Event id="1655" numberOfArguments="0" format="APD_FLYBACK_EX_TRIGGER, Write, Bytes, 1000, &quot;Apd flyback start/stop externally&quot;" />
+  <Event id="1656" numberOfArguments="0" format="APD_FLYBACK_VALUES_GET, Read, Bytes, 1000, &quot;Get Apd flyback loop state&quot;" />
+  <Event id="1657" numberOfArguments="0" format="CT_KILL_THRESHOLDS_SET, Write, Bytes, 1000, &quot;Set CT KILL thresholds: LDD, MA, MC, APD. (FF will set default threshold for the relevant thermistor)" />
+  <Event id="1658" numberOfArguments="0" format="REGS_LOCK_BYPASS_SET, Write, Bytes, 1000, &quot;Set eye safety registers lock bypass&quot;" />
+  <Event id="1659" numberOfArguments="0" format="REGS_LOCK_BYPASS_GET, Read, Bytes, 1000,  &quot;Get eye safety registers lock bypass&quot;" />
+  <Event id="1660" numberOfArguments="0" format="TIA_PWR_GET Read,  Bytes,    1000, &quot;Get Tia Power&quot;" />
+  <Event id="1661" numberOfArguments="0" format="LASER_PWR_GET Read,  Bytes,    1000, &quot;Get Laser Power&quot;" />
+  <Event id="1662" numberOfArguments="0" format="MA_BASED_STREAMING_SET , Write, Bytes, 1000, &quot;Set MA base streaming&quot;, &quot;MA based streaming&quot;" />
+  <Event id="1663" numberOfArguments="0" format="DPT_INTRINSICS_FULL_GET,  Read,  1000, &quot;Get Full Depth Intrinsics info&quot;" />
+  <Event id="1664" numberOfArguments="0" format="TESTER_MODE_SET , Write, Bytes, 1000, &quot;Set tester mode&quot;, &quot;Tester mode&quot;" />
+  <Event id="1665" numberOfArguments="0" format="RGB_INTRINSICS_GET,  Read,  1000, &quot;Get Rgb Intrinsics info&quot;" />
+  <Event id="1666" numberOfArguments="0" format="RGB_EXTRINSICS_GET,  Read,  1000, &quot;Get Rgb Extrinsics info&quot;" />
+  <Event id="1667" numberOfArguments="0" format="PZR_POWER_AVG_GET,  Read,  1000, &quot;Read Average PZR Power&quot;" />
+  <Event id="1668" numberOfArguments="0" format="HUMIDITY_RESET,  Read,  1000, &quot;Reset Humidity Sensor&quot;" />
+  <Event id="1669" numberOfArguments="0" format="HUMIDITY_GET,  Read,  1000, &quot;Readout Humidity Sensor measurement results&quot;" />
+  <Event id="1672" numberOfArguments="0" format="PRESET, Write, 1000, &quot;Preset 1 or 2&quot;," />
+  <Event id="1673" numberOfArguments="0" format="ThermalMng: LOW_TEMP_THRESHOLDS_SET,  write,  1000, &quot;Set low temperatures threshold for LD&quot;" />
+  <Event id="1674" numberOfArguments="0" format="ThermalMng: THERMAL_MANAGER_STATUS_GET,  read,  1000, &quot;Thermal Manager Status Get&quot;" />
+  <Event id="1676" numberOfArguments="1" format="LOCK_EEPROM &quot;Lock EEPROM permanently&quot;, Return value {0:x}" />
+  <Event id="1677" numberOfArguments="0" format="ALGO_GNRL_CODE_SET,  write,  1000, &quot;Set algo gen general code length&quot;" />
+  <Event id="1678" numberOfArguments="0" format="LASER_GAIN_SET,  write,  1000, &quot;Set laser gain&quot;" />
+  <Event id="1679" numberOfArguments="0" format="MIN_RANGE_INVALIDATION,  write,  1000, &quot;MIN range invalidation&quot;" />
+  <Event id="1680" numberOfArguments="0" format="PIXEL_INVALIDATION_BYPASS, Write, Bytes, 1000, &quot;PIXEL invalidation bypass&quot;" />
+  <Event id="1681" numberOfArguments="0" format="SPHERICAL_EN, Write, Bytes, 1000, &quot;Spherical enable&quot;" />
+  <Event id="1682" numberOfArguments="0" format="SHADOW_UPDATE  Write, Bytes, 1000, param1: (0-&gt; none Imeddiate 1-&gt; Immediate)  param2: Mask" />
+  <Event id="1683" numberOfArguments="0" format="ENABLE_XGA_UPSCALE Write, Bytes, 1000, param1: (0-&gt; XVGA 1-&gt; XGA Upscale)" />
+  <Event id="1684" numberOfArguments="0" format="SET_RECTIFIED_PROJECTION Write, Bytes, 1000, param1: (0-&gt; full projection 1-&gt; rectified projection)" />
+  <Event id="1685" numberOfArguments="0" format="SET_PARAM_SYNC_LOOP Write, Bytes, 1000, param1: index paream2: value" />
+  <Event id="1686" numberOfArguments="0" format="LASER_POWER_REDUCE_ENABLE_GET Read, 1000, &quot;Get laser power reduce feature enable status&quot;" />
+  <Event id="1687" numberOfArguments="0" format="LASER_POWER_REDUCE_ENABLE_SET Write, Bytes, 1000, &quot;Set laser power reduce feature enable status&quot;" />
+  <Event id="1688" numberOfArguments="0" format="CONFIG_SYSDELAY_DATA Write, Bytes, 1000, param1: nof Entries &lt;Data&gt;" />
+  <Event id="1689" numberOfArguments="0" format="ONE_DIRECTION_PROJECTION Write, Bytes, 1000, param1: 0-&gt;default 1-&gt;Downward 2-&gt;Upward" />
+  <Event id="1690" numberOfArguments="0" format="MEMS_CMD Write, Bytes, 1000, param1: 0-&gt;Enable_Mems_Driver 1-&gt;Disable_Mems_Driver 2-&gt;Open_Mems 3-&gt;Close_Mems" />
+  <Event id="1693" numberOfArguments="0" format="FALL_DETECT_CONFIG Write, Bytes, 1000, param1:Enable/Disable" />
+  <Event id="1694" numberOfArguments="0" format="FALL_DETECT_CONFIG Write, Bytes, 1000, param1:cntThr1 param2:cntThr2 param3:ampThr1*10000 param4:ampThr2*10000" />
+  <Event id="1695" numberOfArguments="0" format="PROFILER_RUN_CMD, Write, Bytes, 1000, Run or Stop Profiler, 0-stop, 1-start (default is 1)" />
+  <Event id="1696" numberOfArguments="3" format="GET_SPECIAL_FRAME, Write, 1000, Get special frame for RGB to Depth dynamic calibration. Return value {0}, Frame type: {1}, Number of frames: {2}&quot;" />
+  <Event id="1697" numberOfArguments="0" format="MCSTART, Write, 1000, &quot;START&quot;," />
+  <Event id="1698" numberOfArguments="0" format="MCSTOP, Write, 1000, &quot;STOP&quot;," />
+  <Event id="1699" numberOfArguments="0" format="MCCONFIG_GET, Write, 1000,   &quot;CONFIG_SET&quot;," />
+  <Event id="1700" numberOfArguments="0" format="MCCONFIG_SET, Read, 1000, &quot;CONFIG_SET&quot;" />
+  <Event id="1701" numberOfArguments="0" format="MCPARAM_SET, Write, 1000, &quot;PARAM_SET&quot;" />
+  <Event id="1702" numberOfArguments="0" format="MCGVD, Read, 1000, &quot;GVD&quot;" />
+  <Event id="1703" numberOfArguments="0" format="MCLOG, Write, 1000, &quot;LOGGER&quot;" />
+  <Event id="1704" numberOfArguments="0" format="MCLOG_START_ASYNCH, Write, Bytes, 1000, &quot;MCLOG_START_ASYNCH&quot;" />
+  <Event id="1705" numberOfArguments="0" format="MCLOG_GET_ASYNCH, Read, Bytes, 1000, &quot;MCLOG_GET_ASYNCH&quot;" />
+  <Event id="1706" numberOfArguments="0" format="MCLOG_ASYNCH_STATUS, Read, Bytes, 1000, &quot;MCLOG_ASYNCH_STATUS&quot;" />
+  <Event id="1707" numberOfArguments="0" format="MCMEMS_CALIBRATION, Read, Bytes, 1000, &quot;MCMEMS_CALIBRATION&quot;" />
+  <File id="3" Name="&lt;any&gt;" />
+  <File id="4" Name="ExceptionHandler.c" />
+  <File id="5" Name="Logger.c" />
+  <File id="6" Name="I2cDispatch.c" />
+  <File id="7" Name="I2cIntr.c" />
+  <File id="8" Name="i2c_core.c" />
+  <File id="9" Name="main.c" />
+  <File id="10" Name="HwConfig.c" />
+  <File id="11" Name="MsgQueue.c" />
+  <File id="12" Name="gpio.c" />
+  <File id="13" Name="BinaryCommandHandler.c" />
+  <File id="14" Name="sds.c" />
+  <File id="15" Name="eeprom_core.c" />
+  <File id="16" Name="FlashSpiDd.c" />
+  <File id="17" Name="spi.c" />
+  <File id="18" Name="flash_core.c" />
+  <File id="19" Name="param_tables_handler.c" />
+  <File id="20" Name="UsbApplication.c" />
+  <File id="21" Name="UvcStream.c" />
+  <File id="22" Name="calibration.c" />
+  <File id="23" Name="FlowDepth.c" />
+  <File id="24" Name="global_defs.h" />
+  <File id="25" Name="Pmu.c" />
+  <File id="26" Name="ThreadX_MsgQ.c" />
+  <File id="27" Name="eepromTableHandler.c" />
+  <File id="28" Name="CalibrationHandler.c" />
+  <File id="29" Name="UvcControl.c" />
+  <File id="30" Name="Flash.c" />
+  <File id="32" Name="RealTekFwBurner.c" />
+  <File id="33" Name="RealTek_Isp.c" />
+  <File id="34" Name="Isp.c" />
+  <File id="35" Name="PWM.c" />
+  <File id="36" Name="UsbCore.c" />
+  <File id="37" Name="version_core.c" />
+  <File id="38" Name="AutoExposure.c" />
+  <File id="39" Name="RSImager.c" />
+  <File id="40" Name="FishEye_Sensor.c" />
+  <File id="41" Name="FlowFishEye.c" />
+  <File id="42" Name="HdrSingleShot.c" />
+  <File id="43" Name="GSImager.c" />
+  <File id="44" Name="MetaData.c" />
+  <File id="45" Name="Preset.c" />
+  <File id="46" Name="ColorCorrection.c" />
+  <File id="47" Name="Imu.c" />
+  <File id="48" Name="PwmProjectorTester.c" />
+  <File id="49" Name="Hid.c" />
+  <File id="50" Name="Vdf.c" />
+  <File id="51" Name="HwConfigInt.c" />
+  <File id="52" Name="StatCore.c" />
+  <File id="53" Name="MMFwBurner.c" />
+  <File id="54" Name="FlowDepth6fpsLowPowerMode.c" />
+  <File id="55" Name="Scp.c" />
+  <File id="56" Name="Flow.c" />
+  <File id="57" Name="MM.c" />
+  <File id="58" Name="CamUnit.c" />
+  <File id="59" Name="MsXuControl.c" />
+  <File id="60" Name="FlowRgb.c" />
+  <File id="61" Name="timer.c" />
+  <File id="62" Name="OEM.c" />
+  <File id="63" Name="Imager.c" />
+  <File id="64" Name="AutoExposureFaceMode.c" />
+  <File id="65" Name="Ov2A10.c" />
+  <File id="66" Name="MipiRcv.c" />
+  <File id="67" Name="D4MImager.c" />
+  <File id="68" Name="FlowRaw.c" />
+  <File id="69" Name="I2cSlaveHostIf.c" />
+  <File id="70" Name="interrupt_dispatcher.c" />
+  <File id="71" Name="ImuThread.c" />
+  <File id="72" Name="ImuBMI.c" />
+  <File id="73" Name="ThreadsApp.c" />
+  <File id="74" Name="ImagerSubPreset.c" />
+  <File id="75" Name="UsbConfig.c" />
+  <File id="76" Name="AP1302_Isp.c" />
+  <File id="77" Name="OG2B10.c" />
+  <File id="78" Name="SubPreset.c" />
+  <File id="79" Name="DirectSearchCalibration.c" />
+  <File id="80" Name="RealTimeMsgQ.c" />
+  <File id="81" Name="ExtProj.c" />
+  <File id="100" Name="SecCtrl.c" />
+  <File id="101" Name="ThermalLoop.c" />
+  <File id="102" Name="FlashTableHandler.c" />
+  <File id="103" Name="ApdISense.c" />
+  <File id="104" Name="EyeSafetyFlow.c" />
+  <File id="105" Name="LaserDriver.c" />
+  <File id="106" Name="Pvt.c" />
+  <File id="108" Name="ApdFlyback.c" />
+  <File id="110" Name="RangeFinder.c" />
+  <File id="111" Name="HwAssertions.c" />
+  <File id="112" Name="EyeSafety-main.c" />
+  <File id="113" Name="ApicalISP.c" />
+  <File id="114" Name="McA1.c" />
+  <File id="115" Name="ThermalManager.c" />
+  <File id="116" Name="EyeSafetyLock.c" />
+  <File id="117" Name="DIGGsubFunctions.c" />
+  <File id="118" Name="StuckAtTest.c" />
+  <File id="120" Name="EventsQueue.c" />
+  <File id="121" Name="AlgoThermalLoop.c" />
+  <File id="122" Name="PresetCtrl.c" />
+  <File id="123" Name="AlgoConfig.c" />
+  <File id="124" Name="regs.c" />
+  <File id="125" Name="MailboxWrapper.c" />
+  <File id="126" Name="CameraGainControl.c" />
+  <File id="127" Name="Mems.c" />
+  <File id="128" Name="SysDelayOverX.c" />
+  <File id="129" Name="FallDetect.c" />
+  <File id="130" Name="PiAnasync.c" />
+  <File id="131" Name="HwMonitorCmd.c" />
+  <File id="132" Name="IntegrityCheck.c" />
+  <File id="133" Name="MC:SafetyCheckerLoop.c" />
+  <File id="134" Name="Profiler.c" />
+  <File id="135" Name="SpecialFrame.c" />
+  <File id="136" Name="MemsCalibration.c" />
+  <File id="137" Name="MemsFovReduction.c" />
+  <File id="138" Name="HwExtSync.c" />
+  <File id="139" Name="PzrShift.c" />
+  <File id="140" Name="McMemsShiftFix.c" />
+  <File id="141" Name="FeaturesConfiguration.c" />
+  <Thread id="0" Name="MAIN" />
+  <Thread id="1" Name="DEPTH" />
+  <Thread id="2" Name="IMU" />
+  <Thread id="3" Name="RGB" />
+  <Thread id="4" Name="RealTime" />
+  <Thread id="5" Name="LOW" />
+  <Thread id="6" Name="KERNAL" />
+  <Thread id="7" Name="INTERRUPT" />
+</Format>

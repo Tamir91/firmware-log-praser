@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 This script parse firmware log
 """
@@ -81,7 +82,7 @@ def usage() -> None:
     print('OR                                                             ')
     print('Syntax: output | ' + script_name + ' [-x] <xml_file>           ')
     print('                       -h, --help         prints help info     ')
-    print('                       -f, --lof-file     firmware log file    ')
+    print('                       -f, --log-file     firmware log file    ')
     print('                       -x, --xml-events   xml file             ')
     exit(1)
 
@@ -169,50 +170,6 @@ def split_log(log: list, length_of_list: int = 20) -> List[List[Any]]:
 
     if log and type(log) is list and type(length_of_list) is int:
         return [log[i:i + bytes_in_log_line] for i in range(0, len(log), length_of_list)]
-
-
-# Entry point
-opts = []
-args = ""
-
-# parse command-line:
-try:
-    opts, args = getopt.getopt(sys.argv[1:], "hf:x:", longopts=['help', 'lof-file', 'xml-events'])
-except getopt.GetoptError as err:
-    print("Error in get opt")
-    usage()
-
-log_file_link = ''
-xml_file_link = ''
-
-for opt, arg in opts:
-
-    if opt in ('-h', '--help'):
-        usage()
-    elif opt in ('-f', '--lof-file'):
-        log_file_link = arg
-    elif opt in ('-x', '--xml-events'):
-        xml_file_link = arg
-
-xml_data = read_xml_file(xml_file_link)
-if log_file_link == '':
-    logs_str = read_pipe_input()
-else:
-    logs_str = read_log_file(log_file_link)
-
-# remove all except numbers and ','
-logs_str = re.sub("[^0-9,]", "", logs_str)
-
-logs_list = logs_str.split(',')
-
-logs_list = remove_first_bytes(logs_list, 4)
-logs_matrix = split_log(logs_list)
-
-# create numpy array
-logs_np = np.array(logs_matrix)
-
-# remove rows that contain only zeroes
-logs_np = logs_np[~np.all(logs_np == '0', axis=1)]
 
 
 def print_log_headers() -> None:
@@ -435,69 +392,113 @@ def calculate_delta_timestamp(timestamp, last_timestamp) -> int:
         return (timestamp - last_timestamp) * timestamp_factor
 
 
-df = pd.DataFrame(logs_np)
-last_timestamp = 0
+if __name__ == '__main__':
 
-output_customisation = {'print_sequence_id': True,
-                        'print_file_name': True,
-                        'print_group_id': True,
-                        'print_thread_name': True,
-                        'print_severity': True,
-                        'print_line_num': True,
-                        'print_timestamp': True,
-                        'print_delta_timestamp': True,
-                        'print_description': True}
+    output_customisation = {'print_sequence_id': True,
+                            'print_file_name': True,
+                            'print_group_id': True,
+                            'print_thread_name': True,
+                            'print_severity': True,
+                            'print_line_num': True,
+                            'print_timestamp': True,
+                            'print_delta_timestamp': True,
+                            'print_description': True}
 
-print_log_headers()
+    opts = []
+    args = ""
 
-for index, row_bytes in df.iterrows():
-    byte_pointer = 0
+    # parse command-line:
+    try:
+        opts, args = getopt.getopt(sys.argv[1:], "hf:x:", longopts=['help', 'log-file', 'xml-events'])
+    except getopt.GetoptError as err:
+        print("Error in get opt")
+        usage()
 
-    dword1 = Dword1Union()
-    dword1.as_byte = get_double_word(row_bytes)
+    log_file_link = ''
+    xml_file_link = ''
 
-    dword2 = Dword2Union()
-    dword2.as_byte = get_double_word(row_bytes)
+    for opt, arg in opts:
 
-    dword3 = Dword3Union()
-    dword3.as_byte = get_double_word(row_bytes)
+        if opt in ('-h', '--help'):
+            usage()
+        elif opt in ('-f', '--log-file'):
+            log_file_link = arg
+        elif opt in ('-x', '--xml-events'):
+            xml_file_link = arg
 
-    dword4 = Dword4Union()
-    dword4.as_byte = get_double_word(row_bytes)
+    xml_data = read_xml_file(xml_file_link)
+    if log_file_link == '':
+        logs_str = read_pipe_input()
+    else:
+        logs_str = read_log_file(log_file_link)
 
-    dword5 = Dword5Union()
-    dword5.as_byte = get_double_word(row_bytes)
+    # remove all except numbers and ','
+    logs_str = re.sub("[^0-9,]", "", logs_str)
 
-    # double word 1 scope
-    magic_number = dword1.bytes.magic_number
-    severity = dword1.bytes.severity
-    thread_id = dword1.bytes.thread_id
-    file_id = dword1.bytes.field_id
-    group_id = dword1.bytes.group_id
+    logs_list = logs_str.split(',')
 
-    # double word 2 scope
-    event_id = dword2.bytes.event_id
-    line_number = dword2.bytes.line_number
-    sequence = dword2.bytes.sequence
+    logs_list = remove_first_bytes(logs_list, 4)
+    logs_matrix = split_log(logs_list)
 
-    # double word 3 scope
-    data_1 = dword3.bytes.data1
-    data_2 = dword3.bytes.data2
+    # create numpy array
+    logs_np = np.array(logs_matrix)
 
-    # double word 4 scope
-    data_3 = dword4.bytes.data3
+    # remove rows that contain only zeroes
+    logs_np = logs_np[~np.all(logs_np == '0', axis=1)]
 
-    # double word 5 scope
-    timestamp = dword5.bytes.timestamp
+    df = pd.DataFrame(logs_np)
+    last_timestamp = 0
 
-    file_name = get_file_name_from_xml(str(file_id))
-    thread_name = get_thread_name_from_xml(thread_id)
-    delta_timestamp = calculate_delta_timestamp(timestamp, last_timestamp)
-    last_timestamp = timestamp
+    print_log_headers()
 
-    number_arguments = get_number_of_arguments_from_xml(str(event_id))
-    format_string = get_format_string_from_xml(str(event_id))
-    description_string = get_description_string(format_string, number_arguments, data_1, data_2, data_3)
+    for index, row_bytes in df.iterrows():
+        byte_pointer = 0
 
-    print_format_log_line(sequence, file_name, group_id, thread_name, severity, line_number, timestamp, delta_timestamp,
-                          description_string)
+        dword1 = Dword1Union()
+        dword1.as_byte = get_double_word(row_bytes)
+
+        dword2 = Dword2Union()
+        dword2.as_byte = get_double_word(row_bytes)
+
+        dword3 = Dword3Union()
+        dword3.as_byte = get_double_word(row_bytes)
+
+        dword4 = Dword4Union()
+        dword4.as_byte = get_double_word(row_bytes)
+
+        dword5 = Dword5Union()
+        dword5.as_byte = get_double_word(row_bytes)
+
+        # double word 1 scope
+        magic_number = dword1.bytes.magic_number
+        severity = dword1.bytes.severity
+        thread_id = dword1.bytes.thread_id
+        file_id = dword1.bytes.field_id
+        group_id = dword1.bytes.group_id
+
+        # double word 2 scope
+        event_id = dword2.bytes.event_id
+        line_number = dword2.bytes.line_number
+        sequence = dword2.bytes.sequence
+
+        # double word 3 scope
+        data_1 = dword3.bytes.data1
+        data_2 = dword3.bytes.data2
+
+        # double word 4 scope
+        data_3 = dword4.bytes.data3
+
+        # double word 5 scope
+        timestamp = dword5.bytes.timestamp
+
+        file_name = get_file_name_from_xml(str(file_id))
+        thread_name = get_thread_name_from_xml(thread_id)
+        delta_timestamp = calculate_delta_timestamp(timestamp, last_timestamp)
+        last_timestamp = timestamp
+
+        number_arguments = get_number_of_arguments_from_xml(str(event_id))
+        format_string = get_format_string_from_xml(str(event_id))
+        description_string = get_description_string(format_string, number_arguments, data_1, data_2, data_3)
+
+        print_format_log_line(sequence, file_name, group_id, thread_name, severity, line_number, timestamp, delta_timestamp,
+                              description_string)

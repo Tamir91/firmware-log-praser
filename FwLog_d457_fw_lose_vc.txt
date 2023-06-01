@@ -1,0 +1,50 @@
+ 2     AutoExposure.c                2     DEPTH          1     484   2339142743     0              Depth - ROI control set to left 480, right 848
+ 3     HwConfig.c                    2     DEPTH          3     417   2339144343     0.016          HW config - OTF status inconsistent 0, 0, 0x00
+ 4     Imager.c                      2     DEPTH          1     230   2348470485     93.2614        Sensor frame rate changed to 15 FPS, VTS 0x1987, HTS 0x330
+ 5     HwConfig.c                    2     DEPTH          3     417   2348622271     1.51786        HW config - OTF status inconsistent 0, 0, 0x00
+ 6     PWM.c                         2     DEPTH          1     809   2348622640     0.00369        PWM - RegCamPwmWindowCount 0xd5d4, RegCamPwmDelayCount 0x842a
+ 7     global_defs.h                 2     DEPTH          1     53    2348624011     0.01371        Flow system state on end point 3 changed from state 2[EnumValue=ETSystemSubStates] to state 4[EnumValue=ETSystemSubStates]
+ 8     PWM.c                         2     DEPTH          1     1521  2348627828     0.03817        Pwm calc laser count: required power 150, target power 135, count 7
+ 9     PWM.c                         2     DEPTH          1     415   2348628770     0.00942        PWM - RegCamPwmEnableCount 0x05, RegCamPwmDisableCount 0x7e
+ 10    PWM.c                         2     DEPTH          1     1695  2348629160     0.0039         Depth - Laser power control set to 150
+ 11    Preset.c                      2     DEPTH          1     377   2348629842     0.00682        Depth - Preset control set to 1
+ 12    AutoExposureFaceMode.c        2     DEPTH          1     177   2348630360     0.00518        Auto Exposure Face Mode ERROR - Sensor Type = GS
+ 13    AutoExposure.c                2     DEPTH          1     236   2348631123     0.00763        Depth - Auto exposure control set to 1; mean intensity = 0; index = 0
+ 14    Imager.c                      2     DEPTH          1     230   2348716953     0.8583         Sensor frame rate changed to 30 FPS, VTS 0x384, HTS 0xb92
+ 15    HwConfig.c                    2     DEPTH          3     417   2348868187     1.51234        HW config - OTF status inconsistent 0, 0, 0x00
+ 0     PWM.c                         2     DEPTH          1     809   2348868556     0.00369        PWM - RegCamPwmWindowCount 0xcd12, RegCamPwmDelayCount 0x5f52
+ 1     GSImager.c                    2     DEPTH          1     909   2348868947     0.00391        Depth - Auto Exposure control set to (dummy 0): gain: 16, exposure: 8000
+ 2     AutoExposure.c                2     DEPTH          1     82    2348869364     0.00417        Depth - Auto Exposure control set to (dummy 0): gain: 16, exposure: 8000
+ 3     UvcControl.c                  2     DEPTH          2     1865  2348870221     0.00857        debug log, param1 0x01, param2 0xff, param3 0xff
+ 4     HwConfig.c                    2     DEPTH          3     417   2348871403     0.01182        HW config - OTF status inconsistent 0, 0, 0x00
+ 5     ImagerSubPreset.c             2     DEPTH          1     370   2348872472     0.01069        *** Unrecognized Log Id: 705! P1 = 0xff, P2 = 0x00, P3 = 0x09
+ 6     FlowDepth.c                   2     DEPTH          1     402   2351930681     30.5821        Flow Depth - interrupt event 0x10 arrived, time elapsed 9
+ 7     PWM.c                         2     DEPTH          1     415   2351932175     0.01494        PWM - RegCamPwmEnableCount 0x05, RegCamPwmDisableCount 0x7e
+ 8     global_defs.h                 2     DEPTH          1     53    2351934591     0.02416        Flow system state on end point 3 changed from state 4[EnumValue=ETSystemSubStates] to state 8[EnumValue=ETSystemSubStates]
+ 9     HwConfig.c                    2     DEPTH          1     283   2363024917     110.903        Hw Config - interrupt event 0x10 arrived, time elapsed 33
+ 10    HwConfig.c                    2     DEPTH          1     283   2373251810     102.269        Hw Config - interrupt event 0x08 arrived, time elapsed 30
+ 11    HwConfig.c                    2     DEPTH          3     417   2373255983     0.04173        HW config - OTF status inconsistent 0, 64, 0x00
+ 12    AutoExposure.c                2     MAIN           1     378   2374120504     8.64521        Depth - Auto exposure - (dummy(0)) hyst = 0, expMultiplier = {2:f}
+ 13    Imager.c                      2     MAIN           1     230   2374382565     2.62061        Sensor frame rate changed to 30 FPS, VTS 0x384, HTS 0xb92
+ 14    FlowDepth.c                   2     DEPTH          1     402   2374997584     6.15019        Flow Depth - interrupt event 0x90 arrived, time elapsed 5
+ 15    I2cSlaveHostIf.c              2     INTERRUPT      1     761   2378120999     31.2342        Slave Configure  dataType 31   height 480  width 848
+ 0     MsgQueue.c                    2     INTERRUPT      1     170   2378122096     0.01097        Depth Put MSG - FlowDepthPlay ( msgQ : 1c80, delay : 0 ms, msg : 3fffdeb0 )
+ 1     I2cSlaveHostIf.c              2     INTERRUPT      1     776   2378122468     0.00372        Slave Play  time 0   type   49  status 0
+ 2     FlowDepth.c                   2     DEPTH          1     643   2378124011     0.01543        Flow Stream Play Entry - EpNum: 2 ; StreamState: 2
+ 3     global_defs.h                 2     DEPTH          1     53    2378125131     0.0112         Flow system state on end point 2 changed from state 2[EnumValue=ETSystemSubStates] to state 4[EnumValue=ETSystemSubStates]
+ 4     global_defs.h                 2     DEPTH          1     53    2378125795     0.00664        Flow system state on end point 2 changed from state 4[EnumValue=ETSystemSubStates] to state 8[EnumValue=ETSystemSubStates]
+ 5     HwConfig.c                    2     MAIN           1     283   2385213665     70.8787        Hw Config - interrupt event 0x10 arrived, time elapsed 30
+ 6     HwConfig.c                    2     MAIN           1     283   2395440398     102.267        Hw Config - interrupt event 0x08 arrived, time elapsed 30
+ 7     HwConfig.c                    2     MAIN           3     417   2395444727     0.04329        HW config - OTF status inconsistent 0, 61, 0x00
+ 8     PWM.c                         2     MAIN           1     809   2395445180     0.00453        PWM - RegCamPwmWindowCount 0x59da, RegCamPwmDelayCount 0xd28a
+ 9     GSImager.c                    2     MAIN           1     909   2395445593     0.00413        Depth - Auto Exposure control set to (dummy 0): gain: 16, exposure: 14959
+ 10    AutoExposure.c                2     MAIN           1     82    2395446010     0.00417        Depth - Auto Exposure control set to (dummy 0): gain: 16, exposure: 14959
+ 11    HwConfig.c                    2     DEPTH          1     283   2396307879     8.61869        Hw Config - interrupt event 0x10 arrived, time elapsed 2
+ 12    HwConfig.c                    2     DEPTH          1     283   2406534690     102.268        Hw Config - interrupt event 0x08 arrived, time elapsed 30
+ 13    HwConfig.c                    2     DEPTH          1     283   2407402591     8.67901        Hw Config - interrupt event 0x10 arrived, time elapsed 2
+ 14    HwConfig.c                    2     DEPTH          1     283   2417628986     102.264        Hw Config - interrupt event 0x08 arrived, time elapsed 30
+ 15    HwConfig.c                    2     DEPTH          3     417   2417633215     0.04229        HW config - OTF status inconsistent 0, 118, 0x00
+ 0     FlowDepth.c                   2     DEPTH          1     402   2419672029     20.3881        Flow Depth - interrupt event 0xb0 arrived, time elapsed 6
+ 1     MsgQueue.c                    2     INTERRUPT      1     170   2423896834     42.2481        RGB Put MSG - FlowRgbPlay ( msgQ : 1fcc, delay : 0 ms, msg : 3fffded0 )
+ 2     FlowRgb.c                     2     RGB            1     346   2423898396     0.01562        Flow Stream Play Entry - EpNum: 4 ; StreamState: 2
+ 3     FlowRgb.c                     2     RGB            1     261   2423898929     0.00533        RGB ISP Power: 1              
