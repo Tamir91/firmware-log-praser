@@ -9,8 +9,6 @@ import re
 import sys
 from ctypes import Structure, c_uint16, c_uint32
 
-import numpy as np
-import pandas as pd
 from typing import List, Any
 
 from xml.dom.minidom import parse
@@ -137,6 +135,23 @@ def read_pipe_input():
         lines += log_line
 
     return lines
+
+
+def remove_lines_containing_only_zeros(matrix: List[list]):
+    """
+    This function remove line with zeros from a matrix
+    :param matrix: List that contains List of strings
+    :type matrix: List[list] str
+    :return: new List that contains List of strings
+    :rtype: List[list] str
+    """
+    new_matrix = []
+
+    for line in matrix:
+        if not all(num == '0' for num in line) and len(line) > 0:
+            new_matrix.append(line)
+
+    return new_matrix
 
 
 def remove_first_bytes(log: list, number_bytes: int) -> list:
@@ -269,11 +284,11 @@ def get_number_of_arguments_from_xml(_id: str) -> int:
     return 0
 
 
-def get_double_word(bytes_: pd.Series) -> int:
+def get_double_word(bytes_: list) -> int:
     """
     This function return double word
     :param bytes_: bytes in row log
-    :type bytes_: pd.Series
+    :type bytes_: list
     :return: double word
     :rtype: int
     """
@@ -439,19 +454,13 @@ if __name__ == '__main__':
 
     logs_list = remove_first_bytes(logs_list, 4)
     logs_matrix = split_log(logs_list)
+    logs_matrix = remove_lines_containing_only_zeros(logs_matrix)
 
-    # create numpy array
-    logs_np = np.array(logs_matrix)
-
-    # remove rows that contain only zeroes
-    logs_np = logs_np[~np.all(logs_np == '0', axis=1)]
-
-    df = pd.DataFrame(logs_np)
     last_timestamp = 0
 
     print_log_headers()
 
-    for index, row_bytes in df.iterrows():
+    for row_bytes in logs_matrix:
         byte_pointer = 0
 
         dword1 = Dword1Union()
